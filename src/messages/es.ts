@@ -455,7 +455,7 @@ export const messages = {
       emailInvalid: "Por favor ingresa una dirección de correo válida.",
       issueTypeRequired: "Por favor selecciona un tipo de problema.",
       summaryRequired: "Un resumen breve del caso es requerido.",
-      summaryTooShort: "Por favor proporciona un poco más de detalle (al menos una oración).",
+      summaryTooShort: "Por favor proporciona un poco más de detalle (mínimo 100 caracteres).",
       consentRequired: "Por favor confirma que entiendes antes de enviar.",
     },
     issueTypes: [

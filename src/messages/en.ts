@@ -455,7 +455,7 @@ export const messages = {
       emailInvalid: "Please enter a valid email address.",
       issueTypeRequired: "Please select an issue type.",
       summaryRequired: "A brief case summary is required.",
-      summaryTooShort: "Please provide a bit more detail (at least a sentence).",
+      summaryTooShort: "Please provide a bit more detail (at least 100 characters).",
       consentRequired: "Please confirm you understand before submitting.",
     },
     issueTypes: [

@@ -156,7 +156,7 @@ export function ContactForm({
     if (!vals.issueType) errs.issueType = validation.issueTypeRequired;
     if (!vals.summary.trim()) {
       errs.summary = validation.summaryRequired;
-    } else if (vals.summary.trim().length < 20) {
+    } else if (vals.summary.trim().length < 100) {
       errs.summary = validation.summaryTooShort;
     }
     if (!vals.consent) errs.consent = validation.consentRequired;
@@ -164,15 +164,16 @@ export function ContactForm({
   }
 
   function set<K extends keyof FormValues>(field: K, value: FormValues[K]) {
-    setValues((prev) => ({ ...prev, [field]: value }));
+    const newValues = { ...values, [field]: value };
+    setValues(newValues);
     if (touched[field]) {
-      setErrors((prev) => ({ ...prev, ...validate({ ...values, [field]: value }) }));
+      setErrors(validate(newValues));
     }
   }
 
   function blur(field: keyof FormValues) {
     setTouched((prev) => ({ ...prev, [field]: true }));
-    setErrors((prev) => ({ ...prev, ...validate(values) }));
+    setErrors(validate(values));
   }
 
   async function handleSubmit(e: React.FormEvent) {
