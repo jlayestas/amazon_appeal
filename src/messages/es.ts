@@ -6,8 +6,8 @@ export const messages = {
   htmlLang: "es",
 
   site: {
-    name: "Amazon Appeal Pro",
-    tagline: "Consultoría Independiente para Amazon",
+    name: "Underdogs Appeal Pro",
+    tagline: "Consultoría Independiente de Reactivación para Amazon",
     disclaimer:
       "Servicio independiente de consultoría y preparación de documentos. No afiliado, respaldado ni representante de Amazon.com, Inc. ni ninguna de sus subsidiarias. No se garantiza ningún resultado específico.",
     ctaPrimary: "Iniciar Revisión de Caso",
@@ -105,13 +105,13 @@ export const messages = {
         number: "01",
         title: "Revisión",
         description:
-          "Comparte los detalles de tu caso. Se analiza el aviso, el contexto de la política y el historial de la cuenta para entender exactamente lo que enfrentas.",
+          "Comparte los detalles de tu caso. Se analiza el aviso, el contexto de la política y el historial de la cuenta — incluyendo un breve análisis técnico de la situación — para entender exactamente lo que enfrentas.",
       },
       {
         number: "02",
         title: "Preparación",
         description:
-          "Se redacta un plan de acción personalizado — claramente estructurado, alineado con las políticas y escrito para el problema específico.",
+          "Se elaboran y entregan hasta 4 Planes de Acción personalizados para tu presentación. Si estos no avanzan, se preparan cartas con los anexos correspondientes para los departamentos internos de Amazon.",
       },
       {
         number: "03",
@@ -433,6 +433,9 @@ export const messages = {
       phoneHint: "Incluye el código de país si estás fuera de EE. UU.",
       companyLabel: "Nombre de Marca o Tienda",
       companyPlaceholder: "Tu tienda o marca de Amazon",
+      merchantIdLabel: "Merchant Token / ID de Vendedor",
+      merchantIdPlaceholder: "p. ej. A2X3Y4Z5EJEMPLO",
+      merchantIdHint: "Lo encuentras en Seller Central en Información de Cuenta. Opcional pero útil para la revisión inicial.",
       issueTypeLabel: "Tipo de Problema",
       issueTypeHint: "Elige la opción más cercana — puedes aclarar en el resumen.",
       summaryLabel: "Resumen Breve del Caso",
@@ -526,7 +529,7 @@ export const messages = {
         details: [
           "La política o infracción citada se mapea con sus requisitos específicos.",
           "Se revisan las presentaciones previas o el historial de comunicación si están disponibles.",
-          "Se establece una imagen clara del problema central — y el camino a seguir.",
+          "Se prepara un breve análisis técnico de la situación para establecer una imagen clara del problema central y el camino a seguir.",
         ],
       },
       {
@@ -535,9 +538,9 @@ export const messages = {
         title: "Apoyo en Redacción y Estrategia",
         summary: "Preparar una respuesta estructurada para el problema específico.",
         details: [
-          "Se redacta un Plan de Acción, carta de apelación o respuesta a queja.",
-          "El lenguaje se adapta para abordar directamente la preocupación citada por Amazon.",
-          "El tono, la estructura y el enfoque se revisan para claridad y alineación con políticas.",
+          "Se elaboran y entregan hasta 4 Planes de Acción personalizados para la presentación del cliente.",
+          "Si la vía del POA no avanza, se preparan cartas con los anexos correspondientes para los departamentos internos de Amazon.",
+          "El tono, la estructura y el enfoque se revisan para claridad y alineación con políticas en cada borrador.",
         ],
       },
       {
@@ -836,7 +839,7 @@ export const messages = {
       sections: [
         {
           heading: "Servicio Independiente — Sin Afiliación con Amazon",
-          body: "Amazon Appeal Pro es un servicio independiente de consultoría y preparación de documentos. No está afiliado, respaldado, empleado ni es representante de Amazon.com, Inc. ni de ninguna de sus subsidiarias o entidades relacionadas. Cualquier referencia a Amazon, sus políticas o sus programas es solo con fines descriptivos.",
+          body: "Underdogs Appeal Pro es un servicio independiente de consultoría y preparación de documentos. No está afiliado, respaldado, empleado ni es representante de Amazon.com, Inc. ni de ninguna de sus subsidiarias o entidades relacionadas. Cualquier referencia a Amazon, sus políticas o sus programas es solo con fines descriptivos.",
         },
         {
           heading: "Sin Garantía de Reactivación o Resultado",

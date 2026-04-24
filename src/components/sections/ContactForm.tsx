@@ -26,6 +26,9 @@ interface FormStrings {
   phoneHint: string;
   companyLabel: string;
   companyPlaceholder: string;
+  merchantIdLabel: string;
+  merchantIdPlaceholder: string;
+  merchantIdHint: string;
   issueTypeLabel: string;
   issueTypeHint: string;
   summaryLabel: string;
@@ -76,6 +79,7 @@ interface FormValues {
   email: string;
   phone: string;
   company: string;
+  merchantId: string;
   issueType: string;
   summary: string;
   file: File | null;
@@ -91,7 +95,7 @@ interface FormErrors {
 }
 
 const INITIAL: FormValues = {
-  name: "", email: "", phone: "", company: "",
+  name: "", email: "", phone: "", company: "", merchantId: "",
   issueType: "", summary: "", file: null, consent: false,
 };
 
@@ -202,6 +206,7 @@ export function ContactForm({
       data.append("email", values.email);
       if (values.phone) data.append("phone", values.phone);
       if (values.company) data.append("company", values.company);
+      if (values.merchantId) data.append("merchant_id", values.merchantId);
       data.append("issue_type", values.issueType);
       data.append("message", values.summary);
       if (values.file) data.append("attachment", values.file);
@@ -322,6 +327,22 @@ export function ContactForm({
             autoComplete="organization"
           />
         </div>
+      </div>
+
+      {/* Merchant ID */}
+      <div>
+        <Label htmlFor="merchantId" optional>{form.merchantIdLabel}</Label>
+        <Input
+          id="merchantId"
+          name="merchant_id"
+          type="text"
+          placeholder={form.merchantIdPlaceholder}
+          value={values.merchantId}
+          onChange={(e) => set("merchantId", e.target.value)}
+          aria-describedby="merchantId-hint"
+          autoComplete="off"
+        />
+        <FieldHint id="merchantId-hint">{form.merchantIdHint}</FieldHint>
       </div>
 
       {/* Issue Type */}

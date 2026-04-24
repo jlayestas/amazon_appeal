@@ -6,8 +6,8 @@ export const messages = {
   htmlLang: "en",
 
   site: {
-    name: "Amazon Appeal Pro",
-    tagline: "Independent Amazon Consulting",
+    name: "Underdogs Appeal Pro",
+    tagline: "Independent Amazon Reinstatement Consulting",
     disclaimer:
       "Independent consulting and document preparation assistance. Not affiliated with, endorsed by, or a representative of Amazon.com, Inc. or any of its subsidiaries. No specific outcome is guaranteed.",
     ctaPrimary: "Start Your Case Review",
@@ -105,13 +105,13 @@ export const messages = {
         number: "01",
         title: "Review",
         description:
-          "Share your case details. The notice, policy context, and account history are analyzed to understand exactly what you're facing.",
+          "Share your case details. The notice, policy context, and account history are analyzed — including a brief technical analysis of your situation — to understand exactly what you're facing.",
       },
       {
         number: "02",
         title: "Prepare",
         description:
-          "A tailored plan of action is drafted — clearly structured, policy-aligned, and written for the specific issue at hand.",
+          "Up to 4 tailored Plans of Action are drafted and delivered for your submission. If those don't move forward, supporting letters with appropriate exhibits are prepared for Amazon's internal departments.",
       },
       {
         number: "03",
@@ -433,6 +433,9 @@ export const messages = {
       phoneHint: "Include country code if outside the US.",
       companyLabel: "Brand or Store Name",
       companyPlaceholder: "Your Amazon store or brand",
+      merchantIdLabel: "Merchant Token / Seller ID",
+      merchantIdPlaceholder: "e.g. A2X3Y4Z5EXAMPLE",
+      merchantIdHint: "Found in Seller Central under Account Info. Optional but helpful for the initial review.",
       issueTypeLabel: "Issue Type",
       issueTypeHint: "Choose the closest match — clarify in the summary.",
       summaryLabel: "Brief Case Summary",
@@ -526,7 +529,7 @@ export const messages = {
         details: [
           "The cited policy or violation is mapped to its specific requirements.",
           "Prior submissions or communication history are reviewed if available.",
-          "A clear picture of the core issue — and the path forward — is established.",
+          "A brief technical analysis of the situation is prepared to establish a clear picture of the core issue and the path forward.",
         ],
       },
       {
@@ -535,9 +538,9 @@ export const messages = {
         title: "Drafting & Strategy Support",
         summary: "Preparing a response structured for the specific issue at hand.",
         details: [
-          "A Plan of Action, appeal letter, or complaint response is drafted.",
-          "Language is tailored to address Amazon's cited concern directly.",
-          "Tone, structure, and framing are reviewed for clarity and policy alignment.",
+          "Up to 4 tailored Plans of Action are drafted and delivered for client submission.",
+          "If the POA route doesn't move forward, letters with appropriate exhibits are prepared for Amazon's internal departments.",
+          "Tone, structure, and framing are reviewed for clarity and policy alignment at every draft.",
         ],
       },
       {
@@ -835,7 +838,7 @@ export const messages = {
       sections: [
         {
           heading: "Independent Service — No Amazon Affiliation",
-          body: "Amazon Appeal Pro is an independent consulting and document preparation service. It is not affiliated with, endorsed by, employed by, or a representative of Amazon.com, Inc. or any of its subsidiaries or related entities. Any reference to Amazon, its policies, or its programs is for descriptive context only.",
+          body: "Underdogs Appeal Pro is an independent consulting and document preparation service. It is not affiliated with, endorsed by, employed by, or a representative of Amazon.com, Inc. or any of its subsidiaries or related entities. Any reference to Amazon, its policies, or its programs is for descriptive context only.",
         },
         {
           heading: "No Guarantee of Reinstatement or Outcome",
