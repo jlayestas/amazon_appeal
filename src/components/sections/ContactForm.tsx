@@ -9,6 +9,8 @@ import { Textarea } from "@/components/ui/Textarea";
 import { Checkbox } from "@/components/ui/Checkbox";
 import { FileUpload } from "@/components/ui/FileUpload";
 
+const FORMSUBMIT_ENDPOINT = "https://formsubmit.co/ajax/jlayestas@gmail.com";
+
 interface IssueTypeOption {
   value: string;
   label: string;
@@ -139,7 +141,9 @@ export function ContactForm({
   const [values, setValues] = useState<FormValues>(INITIAL);
   const [errors, setErrors] = useState<FormErrors>({});
   const [touched, setTouched] = useState<Partial<Record<keyof FormValues, boolean>>>({});
-  const [status, setStatus] = useState<"idle" | "submitting" | "success">("idle");
+  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  // Honeypot — should stay empty; if a bot fills it we silently drop the submission
+  const [honeypot, setHoneypot] = useState("");
 
   function validate(vals: FormValues): FormErrors {
     const errs: FormErrors = {};
@@ -173,6 +177,13 @@ export function ContactForm({
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
+
+    // Silently discard bot submissions that filled the honeypot
+    if (honeypot) {
+      setStatus("success");
+      return;
+    }
+
     const allTouched = Object.keys(INITIAL).reduce(
       (acc, k) => ({ ...acc, [k]: true }),
       {} as typeof touched
@@ -181,16 +192,60 @@ export function ContactForm({
     const errs = validate(values);
     setErrors(errs);
     if (Object.keys(errs).length > 0) return;
+
     setStatus("submitting");
-    // TODO: replace with real API call
-    await new Promise((r) => setTimeout(r, 1400));
-    setStatus("success");
+
+    try {
+      const data = new FormData();
+      data.append("name", values.name);
+      data.append("email", values.email);
+      if (values.phone) data.append("phone", values.phone);
+      if (values.company) data.append("company", values.company);
+      data.append("issue_type", values.issueType);
+      data.append("message", values.summary);
+      if (values.file) data.append("attachment", values.file);
+
+      // FormSubmit configuration fields
+      data.append("_subject", "New Case Review Request — Amazon Appeal Pro");
+      data.append("_template", "table");
+      data.append("_captcha", "false");
+      data.append("_replyto", values.email);
+      // Honeypot must be included as empty so FormSubmit also checks server-side
+      data.append("_honey", "");
+
+      const res = await fetch(FORMSUBMIT_ENDPOINT, {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: data,
+      });
+
+      const json = await res.json();
+      if (json.success === "true" || json.success === true) {
+        setStatus("success");
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
   }
 
   if (status === "success") return <SuccessState success={success} afterSubmit={afterSubmit} />;
 
   return (
     <form onSubmit={handleSubmit} noValidate aria-label="Case review intake form" className="space-y-6">
+      {/* Honeypot — hidden from real users, traps bots that auto-fill all fields */}
+      <input
+        type="text"
+        name="_honey"
+        value={honeypot}
+        onChange={(e) => setHoneypot(e.target.value)}
+        style={{ display: "none" }}
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+      />
+
       {/* Service note */}
       <div
         role="note"
@@ -206,6 +261,7 @@ export function ContactForm({
           <Label htmlFor="name" required>{form.nameLabel}</Label>
           <Input
             id="name"
+            name="name"
             type="text"
             placeholder={form.namePlaceholder}
             value={values.name}
@@ -222,6 +278,7 @@ export function ContactForm({
           <Label htmlFor="email" required>{form.emailLabel}</Label>
           <Input
             id="email"
+            name="email"
             type="email"
             placeholder={form.emailPlaceholder}
             value={values.email}
@@ -242,6 +299,7 @@ export function ContactForm({
           <Label htmlFor="phone" optional>{form.phoneLabel}</Label>
           <Input
             id="phone"
+            name="phone"
             type="tel"
             placeholder={form.phonePlaceholder}
             value={values.phone}
@@ -255,6 +313,7 @@ export function ContactForm({
           <Label htmlFor="company" optional>{form.companyLabel}</Label>
           <Input
             id="company"
+            name="company"
             type="text"
             placeholder={form.companyPlaceholder}
             value={values.company}
@@ -269,6 +328,7 @@ export function ContactForm({
         <Label htmlFor="issueType" required>{form.issueTypeLabel}</Label>
         <Select
           id="issueType"
+          name="issue_type"
           options={issueTypes as { value: string; label: string }[]}
           value={values.issueType}
           onChange={(e) => set("issueType", e.target.value)}
@@ -290,6 +350,7 @@ export function ContactForm({
         <Label htmlFor="summary" required>{form.summaryLabel}</Label>
         <Textarea
           id="summary"
+          name="message"
           rows={5}
           placeholder={form.summaryPlaceholder}
           value={values.summary}
@@ -326,6 +387,13 @@ export function ContactForm({
         </Checkbox>
         {touched.consent && <FieldError id="consent-error" message={errors.consent} />}
       </div>
+
+      {/* Network error notice */}
+      {status === "error" && (
+        <p role="alert" className="rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-xs text-red-700">
+          Something went wrong sending your message. Please try again or email us directly.
+        </p>
+      )}
 
       {/* Submit */}
       <div className="pt-1">
