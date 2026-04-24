@@ -59,7 +59,7 @@ export const messages = {
       {
         id: "account-support",
         icon: "ShieldCheck",
-        title: "Reinstatement de Cuenta",
+        title: "Reactivación de Cuenta",
         summary: "Para vendedores que enfrentan suspensiones de cuenta o problemas de cumplimiento.",
         items: [
           "Análisis de suspensión de cuenta",
@@ -72,11 +72,11 @@ export const messages = {
       {
         id: "asin-support",
         icon: "Package",
-        title: "Reinstatement de ASIN",
+        title: "Reactivación de ASIN",
         summary: "Para vendedores con listados suprimidos, eliminados o restringidos.",
         items: [
           "Análisis de suspensión de ASIN",
-          "Apoyo para reinstatement de ASIN",
+          "Apoyo para reactivación de ASIN",
           "Elaboración de apelaciones por eliminación de listado",
           "Revisión de documentos y evidencias",
         ],
@@ -164,13 +164,13 @@ export const messages = {
         quote:
           "Después de dos intentos fallidos por mi cuenta, finalmente entendí exactamente lo que Amazon buscaba. La claridad por sí sola valió la pena.",
         name: "— Cliente Ejemplo A",
-        detail: "Reinstatement de cuenta · [Reemplazar antes del lanzamiento]",
+        detail: "Reactivación de cuenta · [Reemplazar antes del lanzamiento]",
       },
       {
         quote:
           "Mi ASIN había estado suprimido durante semanas. El análisis de causa raíz señaló algo que nunca hubiera detectado. La apelación fue aceptada.",
         name: "— Cliente Ejemplo B",
-        detail: "Reinstatement de ASIN · [Reemplazar antes del lanzamiento]",
+        detail: "Reactivación de ASIN · [Reemplazar antes del lanzamiento]",
       },
       {
         quote:
@@ -202,7 +202,7 @@ export const messages = {
         "Suspensiones de cuenta, eliminaciones de ASIN y listados, Planes de Acción, elaboración de apelaciones, apoyo en quejas de PI y marcas, advertencias de rendimiento del vendedor, situaciones relacionadas con cumplimiento, y revisión de documentos o evidencias antes de la presentación.",
     },
     {
-      question: "¿Garantizas el reinstatement o la resolución?",
+      question: "¿Garantizas el reactivación o la resolución?",
       answer:
         "No. No se garantiza ningún resultado. Amazon toma todas las decisiones finales respecto a cuentas, listados y quejas. Lo que ofrecemos es un análisis exhaustivo del caso, documentación cuidadosamente estructurada y una estrategia alineada con las políticas declaradas de Amazon — dando a tu presentación la base más sólida posible.",
     },
@@ -275,10 +275,10 @@ export const messages = {
     },
     categories: [
       {
-        id: "account-reinstatement",
+        id: "account-reactivación",
         icon: "ShieldCheck",
         tag: "Problemas de Cuenta",
-        title: "Apoyo para Reinstatement de Cuenta",
+        title: "Apoyo para Reactivación de Cuenta",
         description:
           "Apoyo para vendedores cuyas cuentas han sido suspendidas o desactivadas a nivel de cuenta — ya sea por métricas de rendimiento, infracciones de política o problemas de verificación.",
         situations: [
@@ -374,7 +374,7 @@ export const messages = {
           "Las métricas se acercan al umbral de suspensión",
           "Intentas entender qué activó una alerta de política",
           "Necesitas claridad sobre una política específica de Amazon antes de actuar",
-          "Te estás preparando para un reinstatement y quieres una revisión de cumplimiento primero",
+          "Te estás preparando para un reactivación y quieres una revisión de cumplimiento primero",
         ],
         includes: [
           "Revisión e interpretación de métricas de rendimiento del vendedor",
@@ -713,7 +713,7 @@ export const messages = {
         "Si un caso está fuera del alcance de este servicio, se comunica claramente desde el inicio.",
       ],
       closing:
-        "Este servicio no garantiza el reinstatement ni ningún resultado específico. Amazon toma la decisión final. Lo que ofrezco es una preparación cuidadosa y exhaustiva.",
+        "Este servicio no garantiza el reactivación ni ningún resultado específico. Amazon toma la decisión final. Lo que ofrezco es una preparación cuidadosa y exhaustiva.",
     },
   },
 
@@ -721,7 +721,7 @@ export const messages = {
     {
       heading: "Servicios",
       links: [
-        { label: "Reinstatement de Cuenta", href: "/es/services#account-reinstatement" },
+        { label: "Reactivación de Cuenta", href: "/es/services#account-reactivación" },
         { label: "ASIN y Listados", href: "/es/services#asin-listing" },
         { label: "Marca y Quejas de PI", href: "/es/services#brand-ip" },
         { label: "Apelaciones y Planes de Acción", href: "/es/services#appeal-poa" },
@@ -801,7 +801,7 @@ export const messages = {
         },
         {
           heading: "Sin Garantía de Resultados",
-          body: "Este servicio ofrece consultoría, asistencia en la redacción, revisión de documentos y orientación estratégica. No garantiza el reinstatement de ninguna cuenta o listado de Amazon, la resolución de ninguna queja ni ningún otro resultado específico. Todas las decisiones finales corresponden a Amazon o a la plataforma o parte relevante.",
+          body: "Este servicio ofrece consultoría, asistencia en la redacción, revisión de documentos y orientación estratégica. No garantiza el reactivación de ninguna cuenta o listado de Amazon, la resolución de ninguna queja ni ningún otro resultado específico. Todas las decisiones finales corresponden a Amazon o a la plataforma o parte relevante.",
         },
         {
           heading: "Servicio Independiente",
@@ -839,8 +839,8 @@ export const messages = {
           body: "Amazon Appeal Pro es un servicio independiente de consultoría y preparación de documentos. No está afiliado, respaldado, empleado ni es representante de Amazon.com, Inc. ni de ninguna de sus subsidiarias o entidades relacionadas. Cualquier referencia a Amazon, sus políticas o sus programas es solo con fines descriptivos.",
         },
         {
-          heading: "Sin Garantía de Reinstatement o Resultado",
-          body: "Este servicio no garantiza el reinstatement de ninguna cuenta o listado suspendido, la resolución de ninguna queja ni ningún otro resultado específico. Amazon y otras plataformas relevantes conservan la discreción exclusiva sobre sus decisiones. Los resultados dependen de muchos factores fuera del control de este servicio.",
+          heading: "Sin Garantía de Reactivación o Resultado",
+          body: "Este servicio no garantiza el reactivación de ninguna cuenta o listado suspendido, la resolución de ninguna queja ni ningún otro resultado específico. Amazon y otras plataformas relevantes conservan la discreción exclusiva sobre sus decisiones. Los resultados dependen de muchos factores fuera del control de este servicio.",
         },
         {
           heading: "Contenido Solo Informativo",
