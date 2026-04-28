@@ -29,6 +29,11 @@ interface FormStrings {
   merchantIdLabel: string;
   merchantIdPlaceholder: string;
   merchantIdHint: string;
+  sellingPlanLabel: string;
+  businessModelLabel: string;
+  suspensionDateLabel: string;
+  suspensionDateHint: string;
+  priorAppealsLabel: string;
   issueTypeLabel: string;
   issueTypeHint: string;
   summaryLabel: string;
@@ -70,6 +75,9 @@ interface ContactFormProps {
   form: FormStrings;
   validation: ValidationStrings;
   issueTypes: readonly IssueTypeOption[];
+  sellingPlanOptions: readonly IssueTypeOption[];
+  businessModelOptions: readonly IssueTypeOption[];
+  priorAppealsOptions: readonly IssueTypeOption[];
   success: SuccessStrings;
   afterSubmit: AfterSubmitStrings;
 }
@@ -80,6 +88,10 @@ interface FormValues {
   phone: string;
   company: string;
   merchantId: string;
+  sellingPlan: string;
+  businessModel: string;
+  suspensionDate: string;
+  priorAppeals: string;
   issueType: string;
   summary: string;
   file: File | null;
@@ -96,6 +108,7 @@ interface FormErrors {
 
 const INITIAL: FormValues = {
   name: "", email: "", phone: "", company: "", merchantId: "",
+  sellingPlan: "", businessModel: "", suspensionDate: "", priorAppeals: "",
   issueType: "", summary: "", file: null, consent: false,
 };
 
@@ -139,6 +152,9 @@ export function ContactForm({
   form,
   validation,
   issueTypes,
+  sellingPlanOptions,
+  businessModelOptions,
+  priorAppealsOptions,
   success,
   afterSubmit,
 }: ContactFormProps) {
@@ -207,6 +223,10 @@ export function ContactForm({
       if (values.phone) data.append("phone", values.phone);
       if (values.company) data.append("company", values.company);
       if (values.merchantId) data.append("merchant_id", values.merchantId);
+      if (values.sellingPlan) data.append("selling_plan", values.sellingPlan);
+      if (values.businessModel) data.append("business_model", values.businessModel);
+      if (values.suspensionDate) data.append("suspension_date", values.suspensionDate);
+      if (values.priorAppeals) data.append("prior_appeals", values.priorAppeals);
       data.append("issue_type", values.issueType);
       data.append("message", values.summary);
       if (values.file) data.append("attachment", values.file);
@@ -343,6 +363,56 @@ export function ContactForm({
           autoComplete="off"
         />
         <FieldHint id="merchantId-hint">{form.merchantIdHint}</FieldHint>
+      </div>
+
+      {/* Selling Plan + Business Model */}
+      <div className="grid gap-5 sm:grid-cols-2">
+        <div>
+          <Label htmlFor="sellingPlan" optional>{form.sellingPlanLabel}</Label>
+          <Select
+            id="sellingPlan"
+            name="selling_plan"
+            options={sellingPlanOptions as { value: string; label: string }[]}
+            value={values.sellingPlan}
+            onChange={(e) => set("sellingPlan", e.target.value)}
+          />
+        </div>
+        <div>
+          <Label htmlFor="businessModel" optional>{form.businessModelLabel}</Label>
+          <Select
+            id="businessModel"
+            name="business_model"
+            options={businessModelOptions as { value: string; label: string }[]}
+            value={values.businessModel}
+            onChange={(e) => set("businessModel", e.target.value)}
+          />
+        </div>
+      </div>
+
+      {/* Suspension Date + Prior Appeals */}
+      <div className="grid gap-5 sm:grid-cols-2">
+        <div>
+          <Label htmlFor="suspensionDate" optional>{form.suspensionDateLabel}</Label>
+          <Input
+            id="suspensionDate"
+            name="suspension_date"
+            type="date"
+            value={values.suspensionDate}
+            onChange={(e) => set("suspensionDate", e.target.value)}
+            aria-describedby="suspensionDate-hint"
+          />
+          <FieldHint id="suspensionDate-hint">{form.suspensionDateHint}</FieldHint>
+        </div>
+        <div>
+          <Label htmlFor="priorAppeals" optional>{form.priorAppealsLabel}</Label>
+          <Select
+            id="priorAppeals"
+            name="prior_appeals"
+            options={priorAppealsOptions as { value: string; label: string }[]}
+            value={values.priorAppeals}
+            onChange={(e) => set("priorAppeals", e.target.value)}
+          />
+        </div>
       </div>
 
       {/* Issue Type */}

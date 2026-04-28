@@ -45,6 +45,9 @@ export default async function ContactPage({ params }: PageProps) {
             form={cp.form}
             validation={cp.validation}
             issueTypes={cp.issueTypes}
+            sellingPlanOptions={cp.sellingPlanOptions}
+            businessModelOptions={cp.businessModelOptions}
+            priorAppealsOptions={cp.priorAppealsOptions}
             success={cp.success}
             afterSubmit={cp.afterSubmit}
           />
