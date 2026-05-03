@@ -10,7 +10,7 @@ export const messages = {
     tagline: "Consultoría Independiente de Reactivación para Amazon",
     disclaimer:
       "Servicio independiente de consultoría y preparación de documentos. No afiliado, respaldado ni representante de Amazon.com, Inc. ni ninguna de sus subsidiarias. No se garantiza ningún resultado específico.",
-    ctaPrimary: "Iniciar Revisión de Caso",
+    ctaPrimary: "Solicitar Consulta",
     ctaSecondary: "Ver Cómo Funciona",
     contactHref: "/es/contact",
     processHref: "/es/process",
