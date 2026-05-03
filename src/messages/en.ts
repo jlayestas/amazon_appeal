@@ -652,7 +652,7 @@ export const messages = {
         "This is a consulting and document preparation service — not a law firm, not part of Amazon. The focus is on helping you prepare stronger, more clearly structured submissions.",
     },
     whoFor: {
-      headline: "Who This Service Is For",
+      headline: "Who Is This Service For?",
       subheadline:
         "If you sell on Amazon and are facing a situation that requires a formal written response, this service is built for you.",
       groups: [
