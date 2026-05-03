@@ -655,7 +655,7 @@ export const messages = {
     whoFor: {
       headline: "Para Quién Es Este Servicio",
       subheadline:
-        "Si vendes en Amazon y enfrentas una situación que requiere una respuesta escrita formal, este servicio está diseñado para eso.",
+        "Si vendes en Amazon y enfrentas una situación que requiere una respuesta escrita formal, este servicio está diseñado para ti.",
       groups: [
         {
           icon: "ShieldAlert",

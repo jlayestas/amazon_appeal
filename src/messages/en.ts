@@ -654,7 +654,7 @@ export const messages = {
     whoFor: {
       headline: "Who This Service Is For",
       subheadline:
-        "If you sell on Amazon and are facing a situation that requires a formal written response, this service is built for that.",
+        "If you sell on Amazon and are facing a situation that requires a formal written response, this service is built for you.",
       groups: [
         {
           icon: "ShieldAlert",
