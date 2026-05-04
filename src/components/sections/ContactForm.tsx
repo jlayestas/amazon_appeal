@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowRight, CheckCircle, Loader2, Info } from "lucide-react";
+import { ArrowRight, CheckCircle, Loader2, Info, ChevronDown, ChevronUp } from "lucide-react";
 import { Label, FieldError, FieldHint } from "@/components/ui/FormField";
 import { Input } from "@/components/ui/Input";
 import { Select } from "@/components/ui/Select";
@@ -41,7 +41,14 @@ interface FormStrings {
   summaryHint: string;
   fileLabel: string;
   fileHint: string;
-  consentText: string;
+  termsTitle: string;
+  termsBody: string;
+  termsReadLabel: string;
+  termsCollapseLabel: string;
+  consentServiceText: string;
+  consentDataText: string;
+  honestyHeadline: string;
+  honestyBody: string;
   submitButton: string;
   submitting: string;
   repliesNote: string;
@@ -56,7 +63,8 @@ interface ValidationStrings {
   issueTypeRequired: string;
   summaryRequired: string;
   summaryTooShort: string;
-  consentRequired: string;
+  consentServiceRequired: string;
+  consentDataRequired: string;
 }
 
 interface SuccessStrings {
@@ -95,7 +103,8 @@ interface FormValues {
   issueType: string;
   summary: string;
   file: File | null;
-  consent: boolean;
+  consentService: boolean;
+  consentData: boolean;
 }
 
 interface FormErrors {
@@ -103,13 +112,14 @@ interface FormErrors {
   email?: string;
   issueType?: string;
   summary?: string;
-  consent?: string;
+  consentService?: string;
+  consentData?: string;
 }
 
 const INITIAL: FormValues = {
   name: "", email: "", phone: "", company: "", merchantId: "",
   sellingPlan: "", businessModel: "", suspensionDate: "", priorAppeals: "",
-  issueType: "", summary: "", file: null, consent: false,
+  issueType: "", summary: "", file: null, consentService: false, consentData: false,
 };
 
 function SuccessState({ success, afterSubmit }: { success: SuccessStrings; afterSubmit: AfterSubmitStrings }) {
@@ -162,6 +172,7 @@ export function ContactForm({
   const [errors, setErrors] = useState<FormErrors>({});
   const [touched, setTouched] = useState<Partial<Record<keyof FormValues, boolean>>>({});
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [termsExpanded, setTermsExpanded] = useState(false);
   // Honeypot — should stay empty; if a bot fills it we silently drop the submission
   const [honeypot, setHoneypot] = useState("");
 
@@ -179,7 +190,8 @@ export function ContactForm({
     } else if (vals.summary.trim().length < 100) {
       errs.summary = validation.summaryTooShort;
     }
-    if (!vals.consent) errs.consent = validation.consentRequired;
+    if (!vals.consentService) errs.consentService = validation.consentServiceRequired;
+    if (!vals.consentData) errs.consentData = validation.consentDataRequired;
     return errs;
   }
 
@@ -467,17 +479,57 @@ export function ContactForm({
         <FieldHint>{form.fileHint}</FieldHint>
       </div>
 
-      {/* Consent */}
-      <div>
-        <Checkbox
-          id="consent"
-          checked={values.consent}
-          onChange={(v) => set("consent", v)}
-          error={!!(touched.consent && errors.consent)}
+      {/* Terms & Confidentiality */}
+      <div className="rounded-lg border border-slate-200 bg-slate-50">
+        <button
+          type="button"
+          onClick={() => setTermsExpanded((v) => !v)}
+          className="flex w-full items-center justify-between px-4 py-3 text-left"
+          aria-expanded={termsExpanded}
         >
-          {form.consentText}
-        </Checkbox>
-        {touched.consent && <FieldError id="consent-error" message={errors.consent} />}
+          <span className="text-xs font-semibold text-[#1a2e4a]">{form.termsTitle}</span>
+          {termsExpanded
+            ? <ChevronUp size={14} className="shrink-0 text-slate-400" aria-hidden="true" />
+            : <ChevronDown size={14} className="shrink-0 text-slate-400" aria-hidden="true" />
+          }
+        </button>
+        {termsExpanded && (
+          <div className="border-t border-slate-200 px-4 pb-4 pt-3">
+            <p className="whitespace-pre-line text-xs leading-relaxed text-slate-600">{form.termsBody}</p>
+          </div>
+        )}
+      </div>
+
+      {/* Consent checkboxes */}
+      <div className="space-y-4">
+        <div>
+          <Checkbox
+            id="consentService"
+            checked={values.consentService}
+            onChange={(v) => set("consentService", v)}
+            error={!!(touched.consentService && errors.consentService)}
+          >
+            {form.consentServiceText}
+          </Checkbox>
+          {touched.consentService && <FieldError id="consentService-error" message={errors.consentService} />}
+        </div>
+        <div>
+          <Checkbox
+            id="consentData"
+            checked={values.consentData}
+            onChange={(v) => set("consentData", v)}
+            error={!!(touched.consentData && errors.consentData)}
+          >
+            {form.consentDataText}
+          </Checkbox>
+          {touched.consentData && <FieldError id="consentData-error" message={errors.consentData} />}
+        </div>
+      </div>
+
+      {/* Honesty note */}
+      <div className="rounded-lg border border-[#1a2e4a]/15 bg-[#1a2e4a]/5 px-5 py-4">
+        <p className="mb-1 text-sm font-semibold text-[#1a2e4a]">{form.honestyHeadline}</p>
+        <p className="text-xs leading-relaxed text-slate-600">{form.honestyBody}</p>
       </div>
 
       {/* Network error notice */}

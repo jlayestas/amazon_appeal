@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { isValidLocale } from "@/i18n/routing";
 import { getMessages } from "@/messages";
 import { AboutHero } from "@/components/sections/AboutHero";
+import { AboutMission } from "@/components/sections/AboutMission";
 import { AboutBody } from "@/components/sections/AboutBody";
 import { FinalCTA } from "@/components/sections/FinalCTA";
 
@@ -43,6 +44,7 @@ export default async function AboutPage({ params }: PageProps) {
   return (
     <>
       <AboutHero hero={ap.hero} />
+      <AboutMission mission={ap.mission} />
       <AboutBody
         whoFor={ap.whoFor}
         whatSupport={ap.whatSupport}

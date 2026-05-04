@@ -45,13 +45,13 @@ export const messages = {
   trustStrip: [
     { value: "500+", label: "Cases Reviewed" },
     { value: "10+", label: "Years of Experience" },
-    { value: "3", label: "Core Practice Areas" },
+    { value: "3", label: "Core Service Areas" },
     { value: "100%", label: "Independent & Unbiased" },
   ],
 
   servicesSection: {
     sectionLabel: "What I Help With",
-    headline: "Three Areas of Practice",
+    headline: "Three Core Service Areas",
     subheadline: "Every service is focused on one goal: giving your case the best possible foundation.",
     viewAll: "View All Services",
     viewAllHref: "/services",
@@ -322,7 +322,7 @@ export const messages = {
         id: "brand-ip",
         icon: "Landmark",
         tag: "Brand & IP",
-        title: "Brand & Intellectual Property Complaint Support",
+        title: "Brand Complaint Support",
         description:
           "Support for brand owners and sellers involved in intellectual property complaints — whether you received one, need to file one, or are trying to resolve an ongoing dispute.",
         situations: [
@@ -449,8 +449,18 @@ export const messages = {
       summaryHint: "No account credentials needed — just describe the situation.",
       fileLabel: "Attach a Document",
       fileHint: "Suspension notice, prior appeal, or relevant document. Max 10 MB.",
-      consentText:
-        "I understand this service provides independent consulting, drafting assistance, and strategy guidance — not legal representation — and that no specific outcome is guaranteed.",
+      termsTitle: "Confidentiality & Terms of Use",
+      termsBody:
+        "By submitting this form, you acknowledge and agree that any personal, confidential, or sensitive information provided will be used solely for internal purposes and/or for purposes directly related to the evaluation, management, processing, or handling of your case, matter, request, or relationship with the company.\n\nWe are committed to protecting the confidentiality of the information you provide. Your personal data and sensitive information will not be sold, shared, transferred, or disclosed to any third party without your prior authorization, except where disclosure is required by applicable law, court order, regulatory obligation, or where reasonably necessary to protect the rights, interests, or legal obligations of the company.\n\nBy providing your information, you confirm that the information submitted is accurate to the best of your knowledge and that you authorize the company to process and use such information for the purposes described above.",
+      termsReadLabel: "Read full terms",
+      termsCollapseLabel: "Collapse",
+      consentServiceText:
+        "I understand this service provides independent consulting, drafting assistance, document review, and strategy guidance only. It does not provide legal representation, and no specific outcome is guaranteed.",
+      consentDataText:
+        "I understand and agree that any personal, confidential, or sensitive information I provide will be used solely for internal purposes and/or purposes related to the review, management, or handling of my case or request. I understand that my information will not be sold, shared, or disclosed to third parties without my prior authorization, except where required by law or reasonably necessary to provide the requested service.",
+      honestyHeadline: "We don't take every case.",
+      honestyBody:
+        "If your situation has low chances of success, we will tell you upfront — before you invest in a full service. Our goal is not to sell you a service. It's to help you make the right decision.",
       submitButton: "Send Case Review Request",
       submitting: "Sending…",
       repliesNote: "Replies within 1–2 business days.",
@@ -464,7 +474,8 @@ export const messages = {
       issueTypeRequired: "Please select an issue type.",
       summaryRequired: "A brief case summary is required.",
       summaryTooShort: "Please provide a bit more detail (at least 100 characters).",
-      consentRequired: "Please confirm you understand before submitting.",
+      consentServiceRequired: "Please confirm you understand the scope of this service before submitting.",
+      consentDataRequired: "Please confirm you agree to the data use terms before submitting.",
     },
     issueTypes: [
       { value: "", label: "Select an issue type…" },
@@ -645,6 +656,29 @@ export const messages = {
   },
 
   aboutPage: {
+    mission: {
+      visionLabel: "Vision",
+      vision:
+        "To become the go-to independent partner for Amazon sellers who value clarity, honesty, and smart decisions over empty promises.",
+      missionLabel: "Mission",
+      mission:
+        "To become the go-to independent partner for Amazon sellers who value clarity, honesty, and smart decisions over empty promises.",
+      valuesLabel: "Values",
+      values: [
+        {
+          title: "Earned Trust",
+          description: "We don't assume trust — we build it by being upfront from day one.",
+        },
+        {
+          title: "Smart Decisions Over Fast Sales",
+          description: "If it's not worth pursuing, we'll say it. Simple as that.",
+        },
+        {
+          title: "Independent Always",
+          description: "We're not Amazon. We don't pretend to be. We work for you.",
+        },
+      ],
+    },
     hero: {
       eyebrow: "About",
       headline: "Independent Support for Amazon Sellers and Brand Owners",

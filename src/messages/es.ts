@@ -45,13 +45,13 @@ export const messages = {
   trustStrip: [
     { value: "500+", label: "Casos Revisados" },
     { value: "10+", label: "Años de Experiencia" },
-    { value: "3", label: "Áreas de Práctica" },
+    { value: "3", label: "Áreas de Servicio Principal" },
     { value: "100%", label: "Independiente e Imparcial" },
   ],
 
   servicesSection: {
     sectionLabel: "En Qué Puedo Ayudar",
-    headline: "Tres Áreas de Práctica",
+    headline: "Tres Áreas de Servicio Principal",
     subheadline: "Cada servicio tiene un objetivo: dar a tu caso la mejor base posible.",
     viewAll: "Ver Todos los Servicios",
     viewAllHref: "/es/services",
@@ -322,7 +322,7 @@ export const messages = {
         id: "brand-ip",
         icon: "Landmark",
         tag: "Marca y PI",
-        title: "Apoyo para Quejas de Marca y Propiedad Intelectual",
+        title: "Apoyo para Quejas de Marca",
         description:
           "Apoyo para propietarios de marca y vendedores involucrados en quejas de propiedad intelectual — ya sea que hayas recibido una, necesites presentar una, o estés tratando de resolver una disputa en curso.",
         situations: [
@@ -449,8 +449,18 @@ export const messages = {
       summaryHint: "No se necesitan credenciales de cuenta — solo describe la situación.",
       fileLabel: "Adjuntar un Documento",
       fileHint: "Aviso de suspensión, apelación previa o documento relevante. Máximo 10 MB.",
-      consentText:
-        "Entiendo que este servicio ofrece consultoría independiente, asistencia en la redacción y orientación estratégica — no representación legal — y que no se garantiza ningún resultado específico.",
+      termsTitle: "Confidencialidad y Términos de Uso",
+      termsBody:
+        "Al enviar este formulario, reconoces y aceptas que cualquier información personal, confidencial o sensible proporcionada será utilizada únicamente para fines internos y/o para fines directamente relacionados con la evaluación, gestión, procesamiento o manejo de tu caso, asunto, solicitud o relación con la empresa.\n\nNos comprometemos a proteger la confidencialidad de la información que proporcionas. Tus datos personales e información sensible no serán vendidos, compartidos, transferidos ni divulgados a terceros sin tu autorización previa, excepto cuando la divulgación sea requerida por la ley aplicable, orden judicial, obligación regulatoria, o cuando sea razonablemente necesario para proteger los derechos, intereses u obligaciones legales de la empresa.\n\nAl proporcionar tu información, confirmas que la información enviada es precisa según tu leal saber y entender, y que autorizas a la empresa a procesar y usar dicha información para los fines descritos anteriormente.",
+      termsReadLabel: "Leer términos completos",
+      termsCollapseLabel: "Colapsar",
+      consentServiceText:
+        "Entiendo que este servicio ofrece únicamente consultoría independiente, asistencia en la redacción, revisión de documentos y orientación estratégica. No proporciona representación legal y no se garantiza ningún resultado específico.",
+      consentDataText:
+        "Entiendo y acepto que cualquier información personal, confidencial o sensible que proporcione será utilizada únicamente para fines internos y/o relacionados con la revisión, gestión o manejo de mi caso o solicitud. Entiendo que mi información no será vendida, compartida ni divulgada a terceros sin mi autorización previa, excepto donde lo exija la ley o sea razonablemente necesario para prestar el servicio solicitado.",
+      honestyHeadline: "No tomamos todos los casos.",
+      honestyBody:
+        "Si tu situación tiene pocas probabilidades de éxito, te lo diremos de frente — antes de que inviertas en un servicio completo. Nuestro objetivo no es venderte un servicio. Es ayudarte a tomar la decisión correcta.",
       submitButton: "Enviar Solicitud de Revisión de Caso",
       submitting: "Enviando…",
       repliesNote: "Respuesta en 1–2 días hábiles.",
@@ -464,7 +474,8 @@ export const messages = {
       issueTypeRequired: "Por favor selecciona un tipo de problema.",
       summaryRequired: "Un resumen breve del caso es requerido.",
       summaryTooShort: "Por favor proporciona un poco más de detalle (mínimo 100 caracteres).",
-      consentRequired: "Por favor confirma que entiendes antes de enviar.",
+      consentServiceRequired: "Por favor confirma que entiendes el alcance del servicio antes de enviar.",
+      consentDataRequired: "Por favor confirma que aceptas los términos de uso de datos antes de enviar.",
     },
     issueTypes: [
       { value: "", label: "Selecciona un tipo de problema…" },
@@ -646,6 +657,29 @@ export const messages = {
   },
 
   aboutPage: {
+    mission: {
+      visionLabel: "Visión",
+      vision:
+        "Convertirnos en el socio independiente de referencia para vendedores de Amazon que valoran la claridad, la honestidad y las decisiones inteligentes por encima de promesas vacías.",
+      missionLabel: "Misión",
+      mission:
+        "Convertirnos en el socio independiente de referencia para vendedores de Amazon que valoran la claridad, la honestidad y las decisiones inteligentes por encima de promesas vacías.",
+      valuesLabel: "Valores",
+      values: [
+        {
+          title: "Confianza Ganada",
+          description: "No asumimos confianza — la construimos siendo transparentes desde el primer día.",
+        },
+        {
+          title: "Decisiones Inteligentes Sobre Ventas Rápidas",
+          description: "Si no vale la pena perseguirlo, lo decimos. Así de simple.",
+        },
+        {
+          title: "Independientes Siempre",
+          description: "No somos Amazon. No pretendemos serlo. Trabajamos para ti.",
+        },
+      ],
+    },
     hero: {
       eyebrow: "Acerca de",
       headline: "Apoyo Independiente para Vendedores y Propietarios de Marca en Amazon",
