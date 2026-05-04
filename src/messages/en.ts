@@ -7,7 +7,7 @@ export const messages = {
 
   site: {
     name: "Underdogs Appeal Pro",
-    tagline: "Independent Amazon Reinstatement Consulting",
+    tagline: "Clarity. Honesty. Stronger Submissions.",
     disclaimer:
       "Independent consulting and document preparation assistance. Not affiliated with, endorsed by, or a representative of Amazon.com, Inc. or any of its subsidiaries. No specific outcome is guaranteed.",
     ctaPrimary: "Start Your Case Review",
@@ -180,6 +180,8 @@ export const messages = {
       },
     ],
   },
+
+  pullQuote: "We tell you the truth — before you spend.",
 
   faqSection: {
     sectionLabel: "Common Questions",

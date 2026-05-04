@@ -7,6 +7,7 @@ import { TrustStrip } from "@/components/sections/TrustStrip";
 import { Services } from "@/components/sections/Services";
 import { Process } from "@/components/sections/Process";
 import { WhyUs } from "@/components/sections/WhyUs";
+import { PullQuote } from "@/components/sections/PullQuote";
 import { FAQ } from "@/components/sections/FAQ";
 import { FinalCTA } from "@/components/sections/FinalCTA";
 
@@ -67,6 +68,7 @@ export default async function HomePage({ params }: PageProps) {
         contactHref={m.site.contactHref}
       />
       <WhyUs section={m.whyUs} />
+      <PullQuote text={m.pullQuote} />
       <FAQ section={m.faqSection} items={m.faqItems} />
       <FinalCTA
         finalCta={m.finalCta}

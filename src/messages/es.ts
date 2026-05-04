@@ -7,7 +7,7 @@ export const messages = {
 
   site: {
     name: "Underdogs Appeal Pro",
-    tagline: "Consultoría Independiente de Reactivación para Amazon",
+    tagline: "Claridad. Honestidad. Presentaciones Más Sólidas.",
     disclaimer:
       "Servicio independiente de consultoría y preparación de documentos. No afiliado, respaldado ni representante de Amazon.com, Inc. ni ninguna de sus subsidiarias. No se garantiza ningún resultado específico.",
     ctaPrimary: "Solicitar Consulta",
@@ -180,6 +180,8 @@ export const messages = {
       },
     ],
   },
+
+  pullQuote: "Te decimos la verdad — antes de que gastes.",
 
   faqSection: {
     sectionLabel: "Preguntas Frecuentes",
