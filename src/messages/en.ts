@@ -664,7 +664,7 @@ export const messages = {
         "To become the go-to independent partner for Amazon sellers who value clarity, honesty, and smart decisions over empty promises.",
       missionLabel: "Mission",
       mission:
-        "To become the go-to independent partner for Amazon sellers who value clarity, honesty, and smart decisions over empty promises.",
+        "We help Amazon sellers understand their situation, build stronger submissions, and make smarter decisions — starting with the truth about their case.",
       valuesLabel: "Values",
       values: [
         {

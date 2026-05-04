@@ -665,7 +665,7 @@ export const messages = {
         "Convertirnos en el socio independiente de referencia para vendedores de Amazon que valoran la claridad, la honestidad y las decisiones inteligentes por encima de promesas vacías.",
       missionLabel: "Misión",
       mission:
-        "Convertirnos en el socio independiente de referencia para vendedores de Amazon que valoran la claridad, la honestidad y las decisiones inteligentes por encima de promesas vacías.",
+        "Ayudamos a los vendedores de Amazon a entender su situación, construir presentaciones más sólidas y tomar decisiones más inteligentes — empezando por la verdad sobre su caso.",
       valuesLabel: "Valores",
       values: [
         {
