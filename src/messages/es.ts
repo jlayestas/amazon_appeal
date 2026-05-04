@@ -448,7 +448,7 @@ export const messages = {
         "Describe el aviso que recibiste, cuándo ocurrió y qué has intentado hasta ahora. Unas pocas oraciones son suficientes.",
       summaryHint: "No se necesitan credenciales de cuenta — solo describe la situación.",
       fileLabel: "Adjuntar un Documento",
-      fileHint: "Aviso de suspensión, apelación previa o documento relevante. Máximo 10 MB.",
+      fileHint: "Aviso de suspensión, apelación previa o documento relevante. Máximo 5 MB.",
       termsTitle: "Confidencialidad y Términos de Uso",
       termsBody:
         "Al enviar este formulario, reconoces y aceptas que cualquier información personal, confidencial o sensible proporcionada será utilizada únicamente para fines internos y/o para fines directamente relacionados con la evaluación, gestión, procesamiento o manejo de tu caso, asunto, solicitud o relación con la empresa.\n\nNos comprometemos a proteger la confidencialidad de la información que proporcionas. Tus datos personales e información sensible no serán vendidos, compartidos, transferidos ni divulgados a terceros sin tu autorización previa, excepto cuando la divulgación sea requerida por la ley aplicable, orden judicial, obligación regulatoria, o cuando sea razonablemente necesario para proteger los derechos, intereses u obligaciones legales de la empresa.\n\nAl proporcionar tu información, confirmas que la información enviada es precisa según tu leal saber y entender, y que autorizas a la empresa a procesar y usar dicha información para los fines descritos anteriormente.",

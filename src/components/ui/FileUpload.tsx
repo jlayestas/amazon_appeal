@@ -10,12 +10,36 @@ interface FileUploadProps {
   accept?: string;
 }
 
+const MAX_BYTES = 5 * 1024 * 1024; // 5 MB — matches FormSubmit's attachment cap
+const ALLOWED_TYPES = new Set([
+  "application/pdf",
+  "application/msword",
+  "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+  "image/png",
+  "image/jpeg",
+]);
+const ALLOWED_EXTS = /\.(pdf|doc|docx|png|jpg|jpeg)$/i;
+
 export function FileUpload({ id, onChange, accept = ".pdf,.doc,.docx,.png,.jpg,.jpeg" }: FileUploadProps) {
   const inputRef = useRef<HTMLInputElement>(null);
   const [file, setFile] = useState<File | null>(null);
   const [dragOver, setDragOver] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   function handleFile(f: File | null) {
+    setError(null);
+    if (f) {
+      if (!ALLOWED_TYPES.has(f.type) && !ALLOWED_EXTS.test(f.name)) {
+        setError("Unsupported file type. Please upload a PDF, Word document, or image.");
+        if (inputRef.current) inputRef.current.value = "";
+        return;
+      }
+      if (f.size > MAX_BYTES) {
+        setError("File exceeds the 5 MB limit. Please upload a smaller file.");
+        if (inputRef.current) inputRef.current.value = "";
+        return;
+      }
+    }
     setFile(f);
     onChange(f);
   }
@@ -50,7 +74,7 @@ export function FileUpload({ id, onChange, accept = ".pdf,.doc,.docx,.png,.jpg,.
               <span className="font-medium text-[#1a2e4a]">Click to attach</span> or drag and drop
             </p>
             <p className="mt-1 text-xs text-slate-400">
-              PDF, Word, or image — max 10 MB
+              PDF, Word, or image — max 5 MB
             </p>
           </>
         )}
@@ -72,6 +96,10 @@ export function FileUpload({ id, onChange, accept = ".pdf,.doc,.docx,.png,.jpg,.
         >
           <X size={13} /> Remove file
         </button>
+      )}
+
+      {error && (
+        <p role="alert" className="mt-2 text-xs text-red-600">{error}</p>
       )}
     </div>
   );

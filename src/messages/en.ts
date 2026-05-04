@@ -448,7 +448,7 @@ export const messages = {
         "Describe the notice you received, when it happened, and what you've tried so far. A few sentences is enough.",
       summaryHint: "No account credentials needed — just describe the situation.",
       fileLabel: "Attach a Document",
-      fileHint: "Suspension notice, prior appeal, or relevant document. Max 10 MB.",
+      fileHint: "Suspension notice, prior appeal, or relevant document. Max 5 MB.",
       termsTitle: "Confidentiality & Terms of Use",
       termsBody:
         "By submitting this form, you acknowledge and agree that any personal, confidential, or sensitive information provided will be used solely for internal purposes and/or for purposes directly related to the evaluation, management, processing, or handling of your case, matter, request, or relationship with the company.\n\nWe are committed to protecting the confidentiality of the information you provide. Your personal data and sensitive information will not be sold, shared, transferred, or disclosed to any third party without your prior authorization, except where disclosure is required by applicable law, court order, regulatory obligation, or where reasonably necessary to protect the rights, interests, or legal obligations of the company.\n\nBy providing your information, you confirm that the information submitted is accurate to the best of your knowledge and that you authorize the company to process and use such information for the purposes described above.",
