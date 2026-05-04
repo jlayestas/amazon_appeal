@@ -123,7 +123,7 @@ export const messages = {
   },
 
   whyUs: {
-    sectionLabel: "Why Work With Us",
+    sectionLabel: "What Sets Us Apart",
     headline: "A Careful, Independent Perspective",
     subheadline: "No templates. No guesswork. Each case is reviewed on its own terms.",
     points: [

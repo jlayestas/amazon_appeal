@@ -123,7 +123,7 @@ export const messages = {
   },
 
   whyUs: {
-    sectionLabel: "Por Qué Trabajar Con Nosotros",
+    sectionLabel: "Lo Que Nos Distingue",
     headline: "Una Perspectiva Cuidadosa e Independiente",
     subheadline: "Sin plantillas. Sin suposiciones. Cada caso se revisa en sus propios términos.",
     points: [
