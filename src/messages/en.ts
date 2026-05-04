@@ -50,7 +50,7 @@ export const messages = {
   ],
 
   servicesSection: {
-    sectionLabel: "What I Help With",
+    sectionLabel: "Our Expertise",
     headline: "Three Core Service Areas",
     subheadline: "Every service is focused on one goal: giving your case the best possible foundation.",
     viewAll: "View All Services",
@@ -123,7 +123,7 @@ export const messages = {
   },
 
   whyUs: {
-    sectionLabel: "Why Work With Me",
+    sectionLabel: "Why Work With Us",
     headline: "A Careful, Independent Perspective",
     subheadline: "No templates. No guesswork. Each case is reviewed on its own terms.",
     points: [
@@ -216,7 +216,7 @@ export const messages = {
     {
       question: "How do I get started?",
       answer:
-        "Submit the intake form on the Contact page with a brief description of your situation. After reviewing the details, I'll confirm whether your case falls within the scope of this service and outline the next steps — no commitment required.",
+        "Submit the intake form on the Contact page with a brief description of your situation. After reviewing the details, we'll confirm whether your case falls within the scope of this service and outline the next steps — no commitment required.",
     },
     {
       question: "What is included in the support?",
@@ -258,7 +258,7 @@ export const messages = {
     },
     contactPrompt: {
       headline: "Don't see your question here?",
-      body: "Submit a brief description of your situation and I'll let you know whether it falls within the scope of this service.",
+      body: "Submit a brief description of your situation and we'll let you know whether it falls within the scope of this service.",
       cta: "Get in Touch",
     },
   },
@@ -272,7 +272,7 @@ export const messages = {
     },
     notSureBlock: {
       headline: "Not sure which service fits your case?",
-      body: "Many situations involve more than one area. Reach out with a brief description of what you're facing and I'll let you know how I can help — no commitment required.",
+      body: "Many situations involve more than one area. Reach out with a brief description of what you're facing and we'll let you know how we can help — no commitment required.",
       cta: "Get Guidance",
     },
     categories: [
@@ -416,7 +416,7 @@ export const messages = {
       eyebrow: "Start Here",
       headline: "Let's Review Your Situation",
       subheadline:
-        "Fill out the form below with a brief description of what you're facing. There's no commitment involved — just a starting point so I can understand your case.",
+        "Fill out the form below with a brief description of what you're facing. There's no commitment involved — just a starting point so we can understand your case.",
       trustPoints: [
         "Replies within 1–2 business days",
         "Confidential and independent",
@@ -510,7 +510,7 @@ export const messages = {
     whatsapp: {
       show: true,
       headline: "Prefer to message directly?",
-      body: "You can also reach out via WhatsApp for a quicker initial exchange. Include a brief description of your situation and I'll respond as soon as possible.",
+      body: "You can also reach out via WhatsApp for a quicker initial exchange. Include a brief description of your situation and we'll respond as soon as possible.",
       number: "+1 (000) 000-0000",
       label: "Message on WhatsApp",
     },
@@ -518,13 +518,13 @@ export const messages = {
       headline: "What happens next",
       steps: [
         "Your submission is reviewed — usually within 1–2 business days.",
-        "If your situation falls within the services offered, I'll follow up with initial observations and next steps.",
-        "If I'm not the right fit for your case, I'll let you know clearly — no runaround.",
+        "If your situation falls within the services offered, we'll follow up with initial observations and next steps.",
+        "If we're not the right fit for your case, we'll let you know clearly — no runaround.",
       ],
     },
     success: {
       headline: "Your message was received.",
-      body: "I'll review the details and follow up within 1–2 business days. If your situation is urgent, mention it in your summary and I'll do my best to prioritize.",
+      body: "We'll review the details and follow up within 1–2 business days. If your situation is urgent, mention it in your summary and we'll do our best to prioritize.",
       note: "Check your spam folder if you don't hear back within 2 business days.",
     },
     sidebarLabels: {

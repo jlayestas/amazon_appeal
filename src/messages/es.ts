@@ -50,7 +50,7 @@ export const messages = {
   ],
 
   servicesSection: {
-    sectionLabel: "En Qué Puedo Ayudar",
+    sectionLabel: "Nuestra Experiencia",
     headline: "Tres Áreas de Servicio Principal",
     subheadline: "Cada servicio tiene un objetivo: dar a tu caso la mejor base posible.",
     viewAll: "Ver Todos los Servicios",
@@ -123,7 +123,7 @@ export const messages = {
   },
 
   whyUs: {
-    sectionLabel: "Por Qué Trabajar Conmigo",
+    sectionLabel: "Por Qué Trabajar Con Nosotros",
     headline: "Una Perspectiva Cuidadosa e Independiente",
     subheadline: "Sin plantillas. Sin suposiciones. Cada caso se revisa en sus propios términos.",
     points: [
@@ -216,7 +216,7 @@ export const messages = {
     {
       question: "¿Cómo comienzo?",
       answer:
-        "Envía el formulario de registro en la página de Contacto con una breve descripción de tu situación. Después de revisar los detalles, confirmaré si tu caso está dentro del alcance de este servicio y describiré los próximos pasos — sin ningún compromiso requerido.",
+        "Envía el formulario de registro en la página de Contacto con una breve descripción de tu situación. Después de revisar los detalles, confirmaremos si tu caso está dentro del alcance de este servicio y describiremos los próximos pasos — sin ningún compromiso requerido.",
     },
     {
       question: "¿Qué incluye el apoyo?",
@@ -258,7 +258,7 @@ export const messages = {
     },
     contactPrompt: {
       headline: "¿No encuentras tu pregunta aquí?",
-      body: "Envía una breve descripción de tu situación y te haré saber si está dentro del alcance de este servicio.",
+      body: "Envía una breve descripción de tu situación y te haremos saber si está dentro del alcance de este servicio.",
       cta: "Contáctanos",
     },
   },
@@ -272,7 +272,7 @@ export const messages = {
     },
     notSureBlock: {
       headline: "¿No sabes cuál servicio se adapta a tu caso?",
-      body: "Muchas situaciones involucran más de un área. Contáctame con una breve descripción de lo que enfrentas y te haré saber cómo puedo ayudar — sin ningún compromiso.",
+      body: "Muchas situaciones involucran más de un área. Contáctanos con una breve descripción de lo que enfrentas y te haremos saber cómo podemos ayudar — sin ningún compromiso.",
       cta: "Obtener Orientación",
     },
     categories: [
@@ -416,7 +416,7 @@ export const messages = {
       eyebrow: "Comienza Aquí",
       headline: "Revisemos Tu Situación",
       subheadline:
-        "Completa el formulario con una breve descripción de lo que enfrentas. No hay ningún compromiso — es solo un punto de partida para que pueda entender tu caso.",
+        "Completa el formulario con una breve descripción de lo que enfrentas. No hay ningún compromiso — es solo un punto de partida para que podamos entender tu caso.",
       trustPoints: [
         "Respuesta en 1–2 días hábiles",
         "Confidencial e independiente",
@@ -510,7 +510,7 @@ export const messages = {
     whatsapp: {
       show: true,
       headline: "¿Prefieres enviar un mensaje directo?",
-      body: "También puedes contactarnos por WhatsApp para un intercambio inicial más rápido. Incluye una breve descripción de tu situación y responderé lo antes posible.",
+      body: "También puedes contactarnos por WhatsApp para un intercambio inicial más rápido. Incluye una breve descripción de tu situación y responderemos lo antes posible.",
       number: "+1 (000) 000-0000",
       label: "Enviar Mensaje por WhatsApp",
     },
@@ -518,13 +518,13 @@ export const messages = {
       headline: "¿Qué sucede después?",
       steps: [
         "Tu envío es revisado — generalmente dentro de 1–2 días hábiles.",
-        "Si tu situación está dentro de los servicios ofrecidos, haré un seguimiento con observaciones iniciales y próximos pasos.",
-        "Si no soy la persona indicada para tu caso, te lo haré saber con claridad — sin rodeos.",
+        "Si tu situación está dentro de los servicios ofrecidos, haremos un seguimiento con observaciones iniciales y próximos pasos.",
+        "Si no somos la opción indicada para tu caso, te lo haremos saber con claridad — sin rodeos.",
       ],
     },
     success: {
       headline: "Tu mensaje fue recibido.",
-      body: "Revisaré los detalles y haré un seguimiento dentro de 1–2 días hábiles. Si tu situación es urgente, menciónalo en tu resumen y haré mi mejor esfuerzo por priorizarlo.",
+      body: "Revisaremos los detalles y haremos un seguimiento dentro de 1–2 días hábiles. Si tu situación es urgente, menciónalo en tu resumen y haremos nuestro mejor esfuerzo por priorizarlo.",
       note: "Revisa tu carpeta de spam si no recibes respuesta dentro de 2 días hábiles.",
     },
     sidebarLabels: {
