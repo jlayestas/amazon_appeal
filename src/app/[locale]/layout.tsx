@@ -5,6 +5,7 @@ import { getMessages } from "@/messages";
 import { Header } from "@/components/sections/Header";
 import { Footer } from "@/components/sections/Footer";
 import { HtmlLang } from "@/components/ui/HtmlLang";
+import { PageTransitionOverlay } from "@/components/ui/PageTransitionOverlay";
 import { localizedAlternates } from "@/lib/seo";
 
 interface LocaleLayoutProps {
@@ -37,6 +38,7 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
   return (
     <>
       <HtmlLang lang={m.htmlLang} />
+      <PageTransitionOverlay />
       <a href="#main-content" className="skip-link">
         {m.nav.skipToContent}
       </a>
