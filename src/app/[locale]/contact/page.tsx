@@ -56,7 +56,6 @@ export default async function ContactPage({ params }: PageProps) {
           />
           <ContactSidebar
             afterSubmit={cp.afterSubmit}
-            faqItems={m.faqItems}
             whatsapp={cp.whatsapp}
             labels={cp.sidebarLabels}
           />
