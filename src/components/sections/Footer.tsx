@@ -23,7 +23,7 @@ interface FooterProps {
   notAffiliated: string;
 }
 
-const PLACEHOLDER_EMAIL = "hello@amazonappealpro.com";
+const PLACEHOLDER_EMAIL = "";
 const PLACEHOLDER_PHONE = "+1 (000) 000-0000";
 
 export function Footer({ siteName, siteTagline, disclaimer, email, phone, footerNav, independentService, allRightsReserved, notAffiliated }: FooterProps) {

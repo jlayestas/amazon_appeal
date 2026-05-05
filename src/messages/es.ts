@@ -14,7 +14,7 @@ export const messages = {
     ctaSecondary: "Ver Cómo Funciona",
     contactHref: "/es/contact",
     processHref: "/es/process",
-    email: "hello@amazonappealpro.com",
+    email: "contact@jrjreinstaters.com",
     phone: "+1 (000) 000-0000",
     footerIndependentService: "Servicio Independiente.",
     footerAllRightsReserved: "Todos los derechos reservados.",
@@ -864,7 +864,7 @@ export const messages = {
         },
         {
           heading: "Contacto",
-          body: "Para preguntas sobre esta Política de Privacidad o para solicitar la eliminación de tu información, contacta: hello@amazonappealpro.com.",
+          body: "Para preguntas sobre esta Política de Privacidad o para solicitar la eliminación de tu información, contacta: contact@jrjreinstaters.com.",
         },
       ],
     },
@@ -904,7 +904,7 @@ export const messages = {
         },
         {
           heading: "Contacto",
-          body: "Para preguntas sobre estos Términos de Uso, contacta: hello@amazonappealpro.com.",
+          body: "Para preguntas sobre estos Términos de Uso, contacta: contact@jrjreinstaters.com.",
         },
       ],
     },
@@ -935,7 +935,7 @@ export const messages = {
         },
         {
           heading: "Contacto",
-          body: "Para preguntas sobre este aviso legal, contacta: hello@amazonappealpro.com.",
+          body: "Para preguntas sobre este aviso legal, contacta: contact@jrjreinstaters.com.",
         },
       ],
     },
