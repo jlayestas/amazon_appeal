@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
+import { OG_IMAGE_PATH, SITE_NAME, SITE_URL } from "@/lib/seo";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -8,16 +9,14 @@ const geistSans = Geist({
   display: "swap",
 });
 
-const BASE_URL = "https://amazonappealpro.com"; // TODO: replace with real domain
-
 export const metadata: Metadata = {
-  metadataBase: new URL(BASE_URL),
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: "Amazon Appeal Pro — Independent Amazon Consulting",
-    template: "%s — Amazon Appeal Pro",
+    default: `${SITE_NAME} — Amazon Seller Suspension Appeal Support`,
+    template: `%s — ${SITE_NAME}`,
   },
   description:
-    "Independent support for Amazon account suspensions, ASIN removals, and brand IP complaints. Appeal drafting, Plan of Action preparation, and strategy guidance.",
+    "Independent Amazon seller suspension appeal support, Plan of Action help, ASIN reinstatement support, and IP complaint response guidance.",
   keywords: [
     "Amazon appeal",
     "Amazon account suspension",
@@ -26,30 +25,30 @@ export const metadata: Metadata = {
     "Amazon seller consulting",
     "IP complaint support",
   ],
-  authors: [{ name: "Amazon Appeal Pro" }],
+  authors: [{ name: SITE_NAME }],
   robots: { index: true, follow: true },
   openGraph: {
     type: "website",
-    url: BASE_URL,
-    siteName: "Amazon Appeal Pro",
-    title: "Amazon Appeal Pro — Independent Amazon Consulting",
+    url: SITE_URL,
+    siteName: SITE_NAME,
+    title: `${SITE_NAME} — Amazon Seller Suspension Appeal Support`,
     description:
-      "Independent support for Amazon account suspensions, ASIN removals, and brand IP complaints.",
+      "Independent Amazon seller suspension appeal support, Plan of Action help, ASIN reinstatement support, and IP complaint response guidance.",
     images: [
       {
-        url: "/og-image.png",
+        url: OG_IMAGE_PATH,
         width: 1200,
         height: 630,
-        alt: "Amazon Appeal Pro — Independent Amazon Consulting",
+        alt: `${SITE_NAME} — Amazon seller appeal support`,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Amazon Appeal Pro — Independent Amazon Consulting",
+    title: `${SITE_NAME} — Amazon Seller Suspension Appeal Support`,
     description:
-      "Independent support for Amazon account suspensions, ASIN removals, and brand IP complaints.",
-    images: ["/og-image.png"],
+      "Independent Amazon seller suspension appeal support, Plan of Action help, ASIN reinstatement support, and IP complaint response guidance.",
+    images: [OG_IMAGE_PATH],
   },
 };
 

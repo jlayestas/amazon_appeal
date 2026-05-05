@@ -244,7 +244,7 @@ export function ContactForm({
       if (values.file) data.append("attachment", values.file);
 
       // FormSubmit configuration fields
-      data.append("_subject", "New Case Review Request — Amazon Appeal Pro");
+      data.append("_subject", "New Case Review Request — JRJ Reinstaters");
       data.append("_template", "table");
       data.append("_captcha", "false");
       data.append("_replyto", values.email);

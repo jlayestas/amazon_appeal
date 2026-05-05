@@ -10,6 +10,7 @@ export function proxy(request: NextRequest) {
   if (
     pathname.startsWith("/_next") ||
     pathname.startsWith("/api") ||
+    pathname === "/opengraph-image" ||
     PUBLIC_FILE.test(pathname)
   ) {
     return NextResponse.next();

@@ -6,6 +6,7 @@ import { AboutHero } from "@/components/sections/AboutHero";
 import { AboutMission } from "@/components/sections/AboutMission";
 import { AboutBody } from "@/components/sections/AboutBody";
 import { FinalCTA } from "@/components/sections/FinalCTA";
+import { localizedAlternates, ogMetadata, robotsFor, SITE_NAME } from "@/lib/seo";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -16,17 +17,27 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!isValidLocale(locale)) return {};
 
   if (locale === "es") {
+    const title = "Acerca de JRJ Reinstaters";
+    const description =
+      "Servicio independiente de consultoría y preparación de documentos para vendedores de Amazon, suspensiones, Planes de Acción, ASIN y quejas de PI.";
     return {
-      title: "Acerca de",
-      description:
-        "Consultoría independiente y servicio de preparación de documentos para vendedores de Amazon y propietarios de marca.",
+      title,
+      description,
+      alternates: localizedAlternates(locale, "about"),
+      robots: robotsFor(true),
+      openGraph: ogMetadata(locale, "about", `${title} — ${SITE_NAME}`, description),
     };
   }
 
+  const title = "About JRJ Reinstaters";
+  const description =
+    "Independent consulting and document preparation for Amazon sellers facing suspensions, Plans of Action, ASIN issues, and IP complaints.";
   return {
-    title: "About",
-    description:
-      "Independent consulting and document preparation service for Amazon sellers and brand owners.",
+    title,
+    description,
+    alternates: localizedAlternates(locale, "about"),
+    robots: robotsFor(true),
+    openGraph: ogMetadata(locale, "about", `${title} — ${SITE_NAME}`, description),
   };
 }
 

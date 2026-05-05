@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { isValidLocale } from "@/i18n/routing";
 import { getMessages } from "@/messages";
 import { LegalLayout } from "@/components/ui/LegalLayout";
+import { localizedAlternates, robotsFor } from "@/lib/seo";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -13,7 +14,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!isValidLocale(locale)) return {};
   return {
     title: locale === "es" ? "Aviso Legal" : "Disclaimer",
-    robots: { index: false },
+    alternates: localizedAlternates(locale, "disclaimer"),
+    robots: robotsFor(false),
   };
 }
 

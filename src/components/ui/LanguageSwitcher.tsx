@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { clsx } from "clsx";
+import { Globe } from "lucide-react";
 
 interface LanguageSwitcherProps {
   /** Whether the header background is light (scrolled/open) */
@@ -10,8 +11,8 @@ interface LanguageSwitcherProps {
 }
 
 const LANGS = [
-  { code: "en", label: "EN", flag: "🇺🇸" },
-  { code: "es", label: "ES", flag: "🇪🇸" },
+  { code: "en", label: "EN" },
+  { code: "es", label: "ES" },
 ] as const;
 
 export function LanguageSwitcher({ isLight }: LanguageSwitcherProps) {
@@ -20,11 +21,8 @@ export function LanguageSwitcher({ isLight }: LanguageSwitcherProps) {
   const activeLang = isEs ? "es" : "en";
 
   function hrefFor(code: "en" | "es"): string {
-    if (code === "es") {
-      return `/es${pathname === "/" ? "" : pathname.startsWith("/es") ? pathname.replace(/^\/es/, "") : pathname}`;
-    } else {
-      return pathname.startsWith("/es") ? pathname.replace(/^\/es/, "") || "/" : pathname;
-    }
+    const pathWithoutLocale = pathname.replace(/^\/(en|es)(?=\/|$)/, "") || "";
+    return `/${code}${pathWithoutLocale}`;
   }
 
   return (
@@ -36,7 +34,12 @@ export function LanguageSwitcher({ isLight }: LanguageSwitcherProps) {
       role="group"
       aria-label="Language selection"
     >
-      {LANGS.map(({ code, label, flag }) => {
+      <Globe
+        size={14}
+        aria-hidden="true"
+        className={clsx("ml-1.5", isLight ? "text-slate-400" : "text-white/50")}
+      />
+      {LANGS.map(({ code, label }) => {
         const isActive = activeLang === code;
         const href = hrefFor(code);
 
@@ -58,7 +61,6 @@ export function LanguageSwitcher({ isLight }: LanguageSwitcherProps) {
                 : "text-white/40 hover:text-white/70"
             )}
           >
-            <span aria-hidden="true" className="text-sm leading-none">{flag}</span>
             <span className="leading-none tracking-wide">{label}</span>
           </Link>
         );

@@ -1,19 +1,19 @@
 // English content — single source of truth for EN locale
-// All hrefs are un-prefixed (middleware rewrites / -> /en internally)
+// English hrefs are /en-prefixed so canonical and internal links match.
 
 export const messages = {
   locale: "en" as const,
   htmlLang: "en",
 
   site: {
-    name: "Underdogs Appeal Pro",
+    name: "JRJ Reinstaters",
     tagline: "Clarity. Honesty. Stronger Submissions.",
     disclaimer:
       "Independent consulting and document preparation assistance. Not affiliated with, endorsed by, or a representative of Amazon.com, Inc. or any of its subsidiaries. No specific outcome is guaranteed.",
     ctaPrimary: "Start Your Case Review",
     ctaSecondary: "See How It Works",
-    contactHref: "/contact",
-    processHref: "/process",
+    contactHref: "/en/contact",
+    processHref: "/en/process",
     email: "hello@amazonappealpro.com",
     phone: "+1 (000) 000-0000",
     footerIndependentService: "Independent Service.",
@@ -23,12 +23,12 @@ export const messages = {
 
   nav: {
     links: [
-      { label: "Services", href: "/services" },
-      { label: "How It Works", href: "/process" },
-      { label: "About", href: "/about" },
-      { label: "FAQ", href: "/faq" },
+      { label: "Services", href: "/en/services" },
+      { label: "How It Works", href: "/en/process" },
+      { label: "About", href: "/en/about" },
+      { label: "FAQ", href: "/en/faq" },
     ],
-    homeHref: "/",
+    homeHref: "/en",
     switchLang: "Español",
     switchLangHref: "/es",
     skipToContent: "Skip to main content",
@@ -54,7 +54,7 @@ export const messages = {
     headline: "Three Core Service Areas",
     subheadline: "Every service is focused on one goal: giving your case the best possible foundation.",
     viewAll: "View All Services",
-    viewAllHref: "/services",
+    viewAllHref: "/en/services",
     items: [
       {
         id: "account-support",
@@ -187,7 +187,7 @@ export const messages = {
     sectionLabel: "Common Questions",
     headline: "Frequently Asked",
     seeAll: "See All Questions",
-    seeAllHref: "/faq",
+    seeAllHref: "/en/faq",
     previewCount: 4,
   },
 
@@ -795,29 +795,29 @@ export const messages = {
     {
       heading: "Services",
       links: [
-        { label: "Account Reinstatement", href: "/services#account-reinstatement" },
-        { label: "ASIN & Listing Issues", href: "/services#asin-listing" },
-        { label: "Brand & IP Complaints", href: "/services#brand-ip" },
-        { label: "Appeals & Plans of Action", href: "/services#appeal-poa" },
-        { label: "Compliance & Strategy", href: "/services#compliance-strategy" },
-        { label: "Document Review", href: "/services#document-review" },
+        { label: "Account Reinstatement", href: "/en/services#account-reinstatement" },
+        { label: "ASIN & Listing Issues", href: "/en/services#asin-listing" },
+        { label: "Brand & IP Complaints", href: "/en/services#brand-ip" },
+        { label: "Appeals & Plans of Action", href: "/en/services#appeal-poa" },
+        { label: "Compliance & Strategy", href: "/en/services#compliance-strategy" },
+        { label: "Document Review", href: "/en/services#document-review" },
       ],
     },
     {
       heading: "Company",
       links: [
-        { label: "About", href: "/about" },
-        { label: "How It Works", href: "/process" },
-        { label: "FAQ", href: "/faq" },
-        { label: "Contact", href: "/contact" },
+        { label: "About", href: "/en/about" },
+        { label: "How It Works", href: "/en/process" },
+        { label: "FAQ", href: "/en/faq" },
+        { label: "Contact", href: "/en/contact" },
       ],
     },
     {
       heading: "Legal",
       links: [
-        { label: "Privacy Policy", href: "/privacy" },
-        { label: "Terms of Use", href: "/terms" },
-        { label: "Disclaimer", href: "/disclaimer" },
+        { label: "Privacy Policy", href: "/en/privacy" },
+        { label: "Terms of Use", href: "/en/terms" },
+        { label: "Disclaimer", href: "/en/disclaimer" },
       ],
     },
   ],
@@ -910,7 +910,7 @@ export const messages = {
       sections: [
         {
           heading: "Independent Service — No Amazon Affiliation",
-          body: "Underdogs Appeal Pro is an independent consulting and document preparation service. It is not affiliated with, endorsed by, employed by, or a representative of Amazon.com, Inc. or any of its subsidiaries or related entities. Any reference to Amazon, its policies, or its programs is for descriptive context only.",
+          body: "JRJ Reinstaters is an independent consulting and document preparation service. It is not affiliated with, endorsed by, employed by, or a representative of Amazon.com, Inc. or any of its subsidiaries or related entities. Any reference to Amazon, its policies, or its programs is for descriptive context only.",
         },
         {
           heading: "No Guarantee of Reinstatement or Outcome",

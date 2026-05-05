@@ -5,6 +5,7 @@ import { getMessages } from "@/messages";
 import { ContactHero } from "@/components/sections/ContactHero";
 import { ContactForm } from "@/components/sections/ContactForm";
 import { ContactSidebar } from "@/components/sections/ContactSidebar";
+import { localizedAlternates, robotsFor } from "@/lib/seo";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -18,14 +19,16 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     return {
       title: "Contacto",
       description: "Envía los detalles de tu caso para una revisión inicial. Sin compromiso — solo un punto de partida.",
-      robots: { index: false },
+      alternates: localizedAlternates(locale, "contact"),
+      robots: robotsFor(false),
     };
   }
 
   return {
     title: "Contact",
     description: "Submit your case details for an initial review. No commitment — just a starting point.",
-    robots: { index: false },
+    alternates: localizedAlternates(locale, "contact"),
+    robots: robotsFor(false),
   };
 }
 

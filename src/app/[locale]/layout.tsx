@@ -5,6 +5,7 @@ import { getMessages } from "@/messages";
 import { Header } from "@/components/sections/Header";
 import { Footer } from "@/components/sections/Footer";
 import { HtmlLang } from "@/components/ui/HtmlLang";
+import { localizedAlternates } from "@/lib/seo";
 
 interface LocaleLayoutProps {
   children: React.ReactNode;
@@ -23,13 +24,7 @@ export async function generateMetadata({
   const { locale } = await params;
   if (!isValidLocale(locale)) return {};
   return {
-    alternates: {
-      canonical: locale === "en" ? "/" : `/${locale}`,
-      languages: {
-        en: "/",
-        es: "/es",
-      },
-    },
+    alternates: localizedAlternates(locale),
   };
 }
 

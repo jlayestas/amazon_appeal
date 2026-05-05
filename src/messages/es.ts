@@ -6,7 +6,7 @@ export const messages = {
   htmlLang: "es",
 
   site: {
-    name: "Underdogs Appeal Pro",
+    name: "JRJ Reinstaters",
     tagline: "Claridad. Honestidad. Presentaciones Más Sólidas.",
     disclaimer:
       "Servicio independiente de consultoría y preparación de documentos. No afiliado, respaldado ni representante de Amazon.com, Inc. ni ninguna de sus subsidiarias. No se garantiza ningún resultado específico.",
@@ -911,7 +911,7 @@ export const messages = {
       sections: [
         {
           heading: "Servicio Independiente — Sin Afiliación con Amazon",
-          body: "Underdogs Appeal Pro es un servicio independiente de consultoría y preparación de documentos. No está afiliado, respaldado, empleado ni es representante de Amazon.com, Inc. ni de ninguna de sus subsidiarias o entidades relacionadas. Cualquier referencia a Amazon, sus políticas o sus programas es solo con fines descriptivos.",
+          body: "JRJ Reinstaters es un servicio independiente de consultoría y preparación de documentos. No está afiliado, respaldado, empleado ni es representante de Amazon.com, Inc. ni de ninguna de sus subsidiarias o entidades relacionadas. Cualquier referencia a Amazon, sus políticas o sus programas es solo con fines descriptivos.",
         },
         {
           heading: "Sin Garantía de Reactivación o Resultado",
