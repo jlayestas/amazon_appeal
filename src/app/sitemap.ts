@@ -6,6 +6,7 @@ import {
   languageAlternates,
   topicSlugs,
 } from "@/lib/seo";
+import { getBlogPosts, getBlogPostTranslations } from "@/lib/blogPosts";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
@@ -34,5 +35,27 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }));
   });
 
-  return [...baseRoutes, ...topicRoutes] as MetadataRoute.Sitemap;
+  const blogRoutes = locales.flatMap((locale) =>
+    getBlogPosts(locale).map((post) => {
+      const path = `blog/${post.slug}`;
+      const translations = getBlogPostTranslations(post.translationKey);
+      return {
+        url: absoluteUrl(locale, path),
+        lastModified: new Date(`${post.updated ?? post.date}T00:00:00Z`),
+        changeFrequency: "monthly",
+        priority: 0.7,
+        alternates: {
+          languages: {
+            en: translations.en ? absoluteUrl("en", `blog/${translations.en.slug}`) : absoluteUrl("en", path),
+            es: translations.es ? absoluteUrl("es", `blog/${translations.es.slug}`) : absoluteUrl("es", path),
+            "x-default": translations.en
+              ? absoluteUrl("en", `blog/${translations.en.slug}`)
+              : absoluteUrl(locale, path),
+          },
+        },
+      };
+    })
+  );
+
+  return [...baseRoutes, ...topicRoutes, ...blogRoutes] as MetadataRoute.Sitemap;
 }

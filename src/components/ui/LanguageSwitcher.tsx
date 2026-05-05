@@ -15,6 +15,32 @@ const LANGS = [
   { code: "es", label: "ES" },
 ] as const;
 
+const BLOG_SLUG_TRANSLATIONS: Record<string, { en: string; es: string }> = {
+  "account-suspension-first-steps": {
+    en: "what-to-do-after-amazon-account-suspension",
+    es: "que-hacer-despues-suspension-cuenta-amazon",
+  },
+  "poa-rejection-reasons": {
+    en: "why-amazon-rejects-plan-of-action",
+    es: "por-que-amazon-rechaza-plan-de-accion",
+  },
+  "asin-vs-account-suspension": {
+    en: "asin-removal-vs-account-suspension",
+    es: "diferencia-asin-eliminado-suspension-cuenta",
+  },
+};
+
+function translatedBlogPath(pathWithoutLocale: string, code: "en" | "es") {
+  const match = pathWithoutLocale.match(/^\/blog\/([^/]+)$/);
+  if (!match) return null;
+
+  const translation = Object.values(BLOG_SLUG_TRANSLATIONS).find(
+    (item) => item.en === match[1] || item.es === match[1]
+  );
+
+  return translation ? `/blog/${translation[code]}` : null;
+}
+
 export function LanguageSwitcher({ isLight }: LanguageSwitcherProps) {
   const pathname = usePathname();
   const isEs = pathname.startsWith("/es");
@@ -22,7 +48,7 @@ export function LanguageSwitcher({ isLight }: LanguageSwitcherProps) {
 
   function hrefFor(code: "en" | "es"): string {
     const pathWithoutLocale = pathname.replace(/^\/(en|es)(?=\/|$)/, "") || "";
-    return `/${code}${pathWithoutLocale}`;
+    return `/${code}${translatedBlogPath(pathWithoutLocale, code) ?? pathWithoutLocale}`;
   }
 
   return (

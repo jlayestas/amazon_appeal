@@ -5,7 +5,7 @@ export const SITE_URL = "https://jrjreinstaters.com";
 export const SITE_NAME = "JRJ Reinstaters";
 export const OG_IMAGE_PATH = "/opengraph-image";
 
-export const indexableBasePaths = ["", "services", "process", "about", "faq"] as const;
+export const indexableBasePaths = ["", "services", "process", "about", "faq", "blog"] as const;
 export const noindexBasePaths = ["contact", "privacy", "terms", "disclaimer"] as const;
 
 export type TopicSlug =

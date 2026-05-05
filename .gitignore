@@ -26,6 +26,7 @@
 *.md
 !README.md
 !AGENTS.md
+!src/content/**/*.md
 
 # debug
 npm-debug.log*

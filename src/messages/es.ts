@@ -26,6 +26,7 @@ export const messages = {
       { label: "Servicios", href: "/es/services" },
       { label: "Cómo Funciona", href: "/es/process" },
       { label: "Acerca de", href: "/es/about" },
+      { label: "Blog", href: "/es/blog" },
       { label: "Preguntas Frecuentes", href: "/es/faq" },
     ],
     homeHref: "/es",
@@ -810,6 +811,7 @@ export const messages = {
       links: [
         { label: "Acerca de", href: "/es/about" },
         { label: "Cómo Funciona", href: "/es/process" },
+        { label: "Blog", href: "/es/blog" },
         { label: "FAQ", href: "/es/faq" },
         { label: "Contacto", href: "/es/contact" },
       ],
