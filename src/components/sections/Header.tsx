@@ -32,16 +32,15 @@ export function Header({
   contactHref,
 }: HeaderProps) {
   const [scrolled, setScrolled] = useState(false);
-  const [open, setOpen] = useState(false);
   const pathname = usePathname();
+  const [menu, setMenu] = useState({ pathname, open: false });
+  const open = menu.pathname === pathname && menu.open;
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 24);
     window.addEventListener("scroll", handler, { passive: true });
     return () => window.removeEventListener("scroll", handler);
   }, []);
-
-  useEffect(() => { setOpen(false); }, [pathname]);
 
   const isLight = scrolled || open;
 
@@ -137,7 +136,7 @@ export function Header({
               ? "text-[#1a2e4a] hover:bg-slate-100"
               : "text-white hover:bg-white/10"
           )}
-          onClick={() => setOpen((p) => !p)}
+          onClick={() => setMenu({ pathname, open: !open })}
           aria-label={open ? "Close navigation menu" : "Open navigation menu"}
           aria-expanded={open}
           aria-controls="mobile-nav"

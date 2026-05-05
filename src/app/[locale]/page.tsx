@@ -18,7 +18,6 @@ interface PageProps {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params;
   if (!isValidLocale(locale)) return {};
-  const m = getMessages(locale);
 
   if (locale === "es") {
     return {

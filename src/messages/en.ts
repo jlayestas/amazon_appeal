@@ -661,23 +661,38 @@ export const messages = {
     mission: {
       visionLabel: "Vision",
       vision:
-        "To become the go-to independent partner for Amazon sellers who value clarity, honesty, and smart decisions over empty promises.",
+        "To make fair, honest support the standard for Amazon sellers — so every decision is made with clarity, not confusion.",
       missionLabel: "Mission",
       mission:
-        "We help Amazon sellers understand their situation, build stronger submissions, and make smarter decisions — starting with the truth about their case.",
+        "We help Amazon sellers understand where they stand, strengthen their cases, and move forward with clarity — through fair, transparent, and thoughtful support.",
       valuesLabel: "Values",
       values: [
         {
-          title: "Earned Trust",
-          description: "We don't assume trust — we build it by being upfront from day one.",
+          title: "Fair by Design",
+          description:
+            "Our pricing, process, and recommendations are built to be fair — from start to finish.",
         },
         {
-          title: "Smart Decisions Over Fast Sales",
-          description: "If it's not worth pursuing, we'll say it. Simple as that.",
+          title: "Clear Thinking",
+          description: "We simplify complexity so you can make confident decisions.",
         },
         {
-          title: "Independent Always",
-          description: "We're not Amazon. We don't pretend to be. We work for you.",
+          title: "Straightforward Communication",
+          description:
+            "No ambiguity. No unnecessary complexity. Just clear, honest guidance.",
+        },
+        {
+          title: "Respect for Your Situation",
+          description: "We understand what's at stake — and we act accordingly.",
+        },
+        {
+          title: "Purpose Over Pressure",
+          description: "We guide decisions, not push them.",
+        },
+        {
+          title: "Independent Perspective",
+          description:
+            "We work for you, bringing an unbiased and grounded point of view.",
         },
       ],
     },

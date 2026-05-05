@@ -22,7 +22,6 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   if (!isValidLocale(locale)) return {};
-  const m = getMessages(locale);
   return {
     alternates: {
       canonical: locale === "en" ? "/" : `/${locale}`,

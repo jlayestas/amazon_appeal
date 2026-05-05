@@ -662,23 +662,38 @@ export const messages = {
     mission: {
       visionLabel: "Visión",
       vision:
-        "Convertirnos en el socio independiente de referencia para vendedores de Amazon que valoran la claridad, la honestidad y las decisiones inteligentes por encima de promesas vacías.",
+        "Hacer que el apoyo justo y honesto sea el estándar para los vendedores de Amazon — para que cada decisión se tome con claridad, no con confusión.",
       missionLabel: "Misión",
       mission:
-        "Ayudamos a los vendedores de Amazon a entender su situación, construir presentaciones más sólidas y tomar decisiones más inteligentes — empezando por la verdad sobre su caso.",
+        "Ayudamos a los vendedores de Amazon a entender dónde están, fortalecer sus casos y avanzar con claridad — a través de apoyo justo, transparente y cuidadoso.",
       valuesLabel: "Valores",
       values: [
         {
-          title: "Confianza Ganada",
-          description: "No asumimos confianza — la construimos siendo transparentes desde el primer día.",
+          title: "Justicia por Diseño",
+          description:
+            "Nuestros precios, proceso y recomendaciones están construidos para ser justos — de principio a fin.",
         },
         {
-          title: "Decisiones Inteligentes Sobre Ventas Rápidas",
-          description: "Si no vale la pena perseguirlo, lo decimos. Así de simple.",
+          title: "Pensamiento Claro",
+          description: "Simplificamos la complejidad para que puedas tomar decisiones con confianza.",
         },
         {
-          title: "Independientes Siempre",
-          description: "No somos Amazon. No pretendemos serlo. Trabajamos para ti.",
+          title: "Comunicación Directa",
+          description:
+            "Sin ambigüedad. Sin complejidad innecesaria. Solo orientación clara y honesta.",
+        },
+        {
+          title: "Respeto por Tu Situación",
+          description: "Entendemos lo que está en juego — y actuamos en consecuencia.",
+        },
+        {
+          title: "Propósito Sobre Presión",
+          description: "Guiamos decisiones, no las presionamos.",
+        },
+        {
+          title: "Perspectiva Independiente",
+          description:
+            "Trabajamos para ti, aportando un punto de vista imparcial y fundamentado.",
         },
       ],
     },
