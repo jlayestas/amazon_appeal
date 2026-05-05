@@ -473,6 +473,7 @@ export const messages = {
       nameRequired: "Tu nombre es requerido.",
       emailRequired: "Tu correo electrónico es requerido.",
       emailInvalid: "Por favor ingresa una dirección de correo válida.",
+      phoneRequired: "Tu teléfono o WhatsApp es requerido.",
       issueTypeRequired: "Por favor selecciona un tipo de problema.",
       summaryRequired: "Un resumen breve del caso es requerido.",
       summaryTooShort: "Por favor proporciona un poco más de detalle (mínimo 30 caracteres).",

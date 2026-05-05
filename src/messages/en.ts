@@ -473,6 +473,7 @@ export const messages = {
       nameRequired: "Your name is required.",
       emailRequired: "Your email address is required.",
       emailInvalid: "Please enter a valid email address.",
+      phoneRequired: "Your phone or WhatsApp number is required.",
       issueTypeRequired: "Please select an issue type.",
       summaryRequired: "A brief case summary is required.",
       summaryTooShort: "Please provide a bit more detail (at least 30 characters).",

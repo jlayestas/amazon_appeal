@@ -38,6 +38,7 @@ interface ValidationStrings {
   nameRequired: string;
   emailRequired: string;
   emailInvalid: string;
+  phoneRequired: string;
   issueTypeRequired: string;
   summaryRequired: string;
   summaryTooShort: string;
@@ -73,6 +74,7 @@ interface FormValues {
 interface FormErrors {
   name?: string;
   email?: string;
+  phone?: string;
   issueType?: string;
   summary?: string;
 }
@@ -142,6 +144,7 @@ export function ContactForm({
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(vals.email)) {
       errs.email = validation.emailInvalid;
     }
+    if (!vals.phone.trim()) errs.phone = validation.phoneRequired;
     if (!vals.issueType) errs.issueType = validation.issueTypeRequired;
     if (!vals.summary.trim()) {
       errs.summary = validation.summaryRequired;
@@ -188,7 +191,7 @@ export function ContactForm({
       const data = new FormData();
       data.append("name", values.name);
       data.append("email", values.email);
-      if (values.phone) data.append("phone", values.phone);
+      data.append("phone", values.phone);
       data.append("issue_type", values.issueType);
       data.append("message", values.summary);
 
@@ -272,7 +275,7 @@ export function ContactForm({
       </div>
 
       <div>
-        <Label htmlFor="phone" optional>{form.phoneLabel}</Label>
+        <Label htmlFor="phone" required>{form.phoneLabel}</Label>
         <Input
           id="phone"
           name="phone"
@@ -280,10 +283,16 @@ export function ContactForm({
           placeholder={form.phonePlaceholder}
           value={values.phone}
           onChange={(e) => set("phone", e.target.value)}
-          aria-describedby="phone-hint"
+          onBlur={() => blur("phone")}
+          error={!!(touched.phone && errors.phone)}
+          aria-describedby={touched.phone && errors.phone ? "phone-error" : "phone-hint"}
+          aria-invalid={!!(touched.phone && errors.phone)}
           autoComplete="tel"
         />
-        <FieldHint id="phone-hint">{form.phoneHint}</FieldHint>
+        {touched.phone
+          ? <FieldError id="phone-error" message={errors.phone} />
+          : <FieldHint id="phone-hint">{form.phoneHint}</FieldHint>
+        }
       </div>
 
       {/* Issue Type */}
