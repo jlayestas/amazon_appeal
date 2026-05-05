@@ -475,7 +475,7 @@ export const messages = {
       emailInvalid: "Please enter a valid email address.",
       issueTypeRequired: "Please select an issue type.",
       summaryRequired: "A brief case summary is required.",
-      summaryTooShort: "Please provide a bit more detail (at least 100 characters).",
+      summaryTooShort: "Please provide a bit more detail (at least 30 characters).",
       consentServiceRequired: "Please confirm you understand the scope of this service before submitting.",
       consentDataRequired: "Please confirm you agree to the data use terms before submitting.",
     },

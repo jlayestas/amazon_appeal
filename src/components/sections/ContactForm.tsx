@@ -1,13 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowRight, CheckCircle, Loader2, Info, ChevronDown, ChevronUp } from "lucide-react";
+import { ArrowRight, CheckCircle, Loader2 } from "lucide-react";
 import { Label, FieldError, FieldHint } from "@/components/ui/FormField";
 import { Input } from "@/components/ui/Input";
 import { Select } from "@/components/ui/Select";
 import { Textarea } from "@/components/ui/Textarea";
-import { Checkbox } from "@/components/ui/Checkbox";
-import { FileUpload } from "@/components/ui/FileUpload";
 
 const FORMSUBMIT_ENDPOINT = "https://formsubmit.co/ajax/jlayestas@gmail.com";
 
@@ -24,31 +22,11 @@ interface FormStrings {
   phoneLabel: string;
   phonePlaceholder: string;
   phoneHint: string;
-  companyLabel: string;
-  companyPlaceholder: string;
-  merchantIdLabel: string;
-  merchantIdPlaceholder: string;
-  merchantIdHint: string;
-  sellingPlanLabel: string;
-  businessModelLabel: string;
-  suspensionDateLabel: string;
-  suspensionDateHint: string;
-  priorAppealsLabel: string;
   issueTypeLabel: string;
   issueTypeHint: string;
   summaryLabel: string;
   summaryPlaceholder: string;
   summaryHint: string;
-  fileLabel: string;
-  fileHint: string;
-  termsTitle: string;
-  termsBody: string;
-  termsReadLabel: string;
-  termsCollapseLabel: string;
-  consentServiceText: string;
-  consentDataText: string;
-  honestyHeadline: string;
-  honestyBody: string;
   submitButton: string;
   submitting: string;
   repliesNote: string;
@@ -63,8 +41,6 @@ interface ValidationStrings {
   issueTypeRequired: string;
   summaryRequired: string;
   summaryTooShort: string;
-  consentServiceRequired: string;
-  consentDataRequired: string;
 }
 
 interface SuccessStrings {
@@ -79,13 +55,9 @@ interface AfterSubmitStrings {
 }
 
 interface ContactFormProps {
-  formNote: string;
   form: FormStrings;
   validation: ValidationStrings;
   issueTypes: readonly IssueTypeOption[];
-  sellingPlanOptions: readonly IssueTypeOption[];
-  businessModelOptions: readonly IssueTypeOption[];
-  priorAppealsOptions: readonly IssueTypeOption[];
   success: SuccessStrings;
   afterSubmit: AfterSubmitStrings;
 }
@@ -94,17 +66,8 @@ interface FormValues {
   name: string;
   email: string;
   phone: string;
-  company: string;
-  merchantId: string;
-  sellingPlan: string;
-  businessModel: string;
-  suspensionDate: string;
-  priorAppeals: string;
   issueType: string;
   summary: string;
-  file: File | null;
-  consentService: boolean;
-  consentData: boolean;
 }
 
 interface FormErrors {
@@ -112,14 +75,14 @@ interface FormErrors {
   email?: string;
   issueType?: string;
   summary?: string;
-  consentService?: string;
-  consentData?: string;
 }
 
 const INITIAL: FormValues = {
-  name: "", email: "", phone: "", company: "", merchantId: "",
-  sellingPlan: "", businessModel: "", suspensionDate: "", priorAppeals: "",
-  issueType: "", summary: "", file: null, consentService: false, consentData: false,
+  name: "",
+  email: "",
+  phone: "",
+  issueType: "",
+  summary: "",
 };
 
 function SuccessState({ success, afterSubmit }: { success: SuccessStrings; afterSubmit: AfterSubmitStrings }) {
@@ -158,13 +121,9 @@ function SuccessState({ success, afterSubmit }: { success: SuccessStrings; after
 }
 
 export function ContactForm({
-  formNote,
   form,
   validation,
   issueTypes,
-  sellingPlanOptions,
-  businessModelOptions,
-  priorAppealsOptions,
   success,
   afterSubmit,
 }: ContactFormProps) {
@@ -172,7 +131,6 @@ export function ContactForm({
   const [errors, setErrors] = useState<FormErrors>({});
   const [touched, setTouched] = useState<Partial<Record<keyof FormValues, boolean>>>({});
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
-  const [termsExpanded, setTermsExpanded] = useState(false);
   // Honeypot — should stay empty; if a bot fills it we silently drop the submission
   const [honeypot, setHoneypot] = useState("");
 
@@ -187,11 +145,9 @@ export function ContactForm({
     if (!vals.issueType) errs.issueType = validation.issueTypeRequired;
     if (!vals.summary.trim()) {
       errs.summary = validation.summaryRequired;
-    } else if (vals.summary.trim().length < 100) {
+    } else if (vals.summary.trim().length < 30) {
       errs.summary = validation.summaryTooShort;
     }
-    if (!vals.consentService) errs.consentService = validation.consentServiceRequired;
-    if (!vals.consentData) errs.consentData = validation.consentDataRequired;
     return errs;
   }
 
@@ -233,15 +189,8 @@ export function ContactForm({
       data.append("name", values.name);
       data.append("email", values.email);
       if (values.phone) data.append("phone", values.phone);
-      if (values.company) data.append("company", values.company);
-      if (values.merchantId) data.append("merchant_id", values.merchantId);
-      if (values.sellingPlan) data.append("selling_plan", values.sellingPlan);
-      if (values.businessModel) data.append("business_model", values.businessModel);
-      if (values.suspensionDate) data.append("suspension_date", values.suspensionDate);
-      if (values.priorAppeals) data.append("prior_appeals", values.priorAppeals);
       data.append("issue_type", values.issueType);
       data.append("message", values.summary);
-      if (values.file) data.append("attachment", values.file);
 
       // FormSubmit configuration fields
       data.append("_subject", "New Case Review Request — JRJ Reinstaters");
@@ -284,15 +233,6 @@ export function ContactForm({
         aria-hidden="true"
       />
 
-      {/* Service note */}
-      <div
-        role="note"
-        className="flex items-start gap-3 rounded-lg border border-[#1a2e4a]/10 bg-[#f0f4fa] px-4 py-3.5"
-      >
-        <Info size={15} className="mt-0.5 shrink-0 text-[#1a2e4a]" aria-hidden="true" />
-        <p className="text-xs leading-relaxed text-slate-600">{formNote}</p>
-      </div>
-
       {/* Name + Email */}
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
@@ -331,100 +271,19 @@ export function ContactForm({
         </div>
       </div>
 
-      {/* Phone + Company */}
-      <div className="grid gap-5 sm:grid-cols-2">
-        <div>
-          <Label htmlFor="phone" optional>{form.phoneLabel}</Label>
-          <Input
-            id="phone"
-            name="phone"
-            type="tel"
-            placeholder={form.phonePlaceholder}
-            value={values.phone}
-            onChange={(e) => set("phone", e.target.value)}
-            aria-describedby="phone-hint"
-            autoComplete="tel"
-          />
-          <FieldHint id="phone-hint">{form.phoneHint}</FieldHint>
-        </div>
-        <div>
-          <Label htmlFor="company" optional>{form.companyLabel}</Label>
-          <Input
-            id="company"
-            name="company"
-            type="text"
-            placeholder={form.companyPlaceholder}
-            value={values.company}
-            onChange={(e) => set("company", e.target.value)}
-            autoComplete="organization"
-          />
-        </div>
-      </div>
-
-      {/* Merchant ID */}
       <div>
-        <Label htmlFor="merchantId" optional>{form.merchantIdLabel}</Label>
+        <Label htmlFor="phone" optional>{form.phoneLabel}</Label>
         <Input
-          id="merchantId"
-          name="merchant_id"
-          type="text"
-          placeholder={form.merchantIdPlaceholder}
-          value={values.merchantId}
-          onChange={(e) => set("merchantId", e.target.value)}
-          aria-describedby="merchantId-hint"
-          autoComplete="off"
+          id="phone"
+          name="phone"
+          type="tel"
+          placeholder={form.phonePlaceholder}
+          value={values.phone}
+          onChange={(e) => set("phone", e.target.value)}
+          aria-describedby="phone-hint"
+          autoComplete="tel"
         />
-        <FieldHint id="merchantId-hint">{form.merchantIdHint}</FieldHint>
-      </div>
-
-      {/* Selling Plan + Business Model */}
-      <div className="grid gap-5 sm:grid-cols-2">
-        <div>
-          <Label htmlFor="sellingPlan" optional>{form.sellingPlanLabel}</Label>
-          <Select
-            id="sellingPlan"
-            name="selling_plan"
-            options={sellingPlanOptions as { value: string; label: string }[]}
-            value={values.sellingPlan}
-            onChange={(e) => set("sellingPlan", e.target.value)}
-          />
-        </div>
-        <div>
-          <Label htmlFor="businessModel" optional>{form.businessModelLabel}</Label>
-          <Select
-            id="businessModel"
-            name="business_model"
-            options={businessModelOptions as { value: string; label: string }[]}
-            value={values.businessModel}
-            onChange={(e) => set("businessModel", e.target.value)}
-          />
-        </div>
-      </div>
-
-      {/* Suspension Date + Prior Appeals */}
-      <div className="grid gap-5 sm:grid-cols-2">
-        <div>
-          <Label htmlFor="suspensionDate" optional>{form.suspensionDateLabel}</Label>
-          <Input
-            id="suspensionDate"
-            name="suspension_date"
-            type="date"
-            value={values.suspensionDate}
-            onChange={(e) => set("suspensionDate", e.target.value)}
-            aria-describedby="suspensionDate-hint"
-          />
-          <FieldHint id="suspensionDate-hint">{form.suspensionDateHint}</FieldHint>
-        </div>
-        <div>
-          <Label htmlFor="priorAppeals" optional>{form.priorAppealsLabel}</Label>
-          <Select
-            id="priorAppeals"
-            name="prior_appeals"
-            options={priorAppealsOptions as { value: string; label: string }[]}
-            value={values.priorAppeals}
-            onChange={(e) => set("priorAppeals", e.target.value)}
-          />
-        </div>
+        <FieldHint id="phone-hint">{form.phoneHint}</FieldHint>
       </div>
 
       {/* Issue Type */}
@@ -470,66 +329,6 @@ export function ContactForm({
           ? <FieldError id="summary-error" message={errors.summary} />
           : <FieldHint id="summary-hint">{form.summaryHint}</FieldHint>
         }
-      </div>
-
-      {/* File */}
-      <div>
-        <Label htmlFor="file" optional>{form.fileLabel}</Label>
-        <FileUpload id="file" onChange={(f) => set("file", f)} />
-        <FieldHint>{form.fileHint}</FieldHint>
-      </div>
-
-      {/* Terms & Confidentiality */}
-      <div className="rounded-lg border border-slate-200 bg-slate-50">
-        <button
-          type="button"
-          onClick={() => setTermsExpanded((v) => !v)}
-          className="flex w-full items-center justify-between px-4 py-3 text-left"
-          aria-expanded={termsExpanded}
-        >
-          <span className="text-xs font-semibold text-[#1a2e4a]">{form.termsTitle}</span>
-          {termsExpanded
-            ? <ChevronUp size={14} className="shrink-0 text-slate-400" aria-hidden="true" />
-            : <ChevronDown size={14} className="shrink-0 text-slate-400" aria-hidden="true" />
-          }
-        </button>
-        {termsExpanded && (
-          <div className="border-t border-slate-200 px-4 pb-4 pt-3">
-            <p className="whitespace-pre-line text-xs leading-relaxed text-slate-600">{form.termsBody}</p>
-          </div>
-        )}
-      </div>
-
-      {/* Consent checkboxes */}
-      <div className="space-y-4">
-        <div>
-          <Checkbox
-            id="consentService"
-            checked={values.consentService}
-            onChange={(v) => set("consentService", v)}
-            error={!!(touched.consentService && errors.consentService)}
-          >
-            {form.consentServiceText}
-          </Checkbox>
-          {touched.consentService && <FieldError id="consentService-error" message={errors.consentService} />}
-        </div>
-        <div>
-          <Checkbox
-            id="consentData"
-            checked={values.consentData}
-            onChange={(v) => set("consentData", v)}
-            error={!!(touched.consentData && errors.consentData)}
-          >
-            {form.consentDataText}
-          </Checkbox>
-          {touched.consentData && <FieldError id="consentData-error" message={errors.consentData} />}
-        </div>
-      </div>
-
-      {/* Honesty note */}
-      <div className="rounded-lg border border-[#1a2e4a]/15 bg-[#1a2e4a]/5 px-5 py-4">
-        <p className="mb-1 text-sm font-semibold text-[#1a2e4a]">{form.honestyHeadline}</p>
-        <p className="text-xs leading-relaxed text-slate-600">{form.honestyBody}</p>
       </div>
 
       {/* Network error notice */}
