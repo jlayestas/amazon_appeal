@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowRight, CheckCircle, Loader2 } from "lucide-react";
+import { ArrowRight, CheckCircle, ChevronDown, Globe2, Loader2 } from "lucide-react";
 import { Label, FieldError, FieldHint } from "@/components/ui/FormField";
 import { Input } from "@/components/ui/Input";
 import { Select } from "@/components/ui/Select";
@@ -20,6 +20,7 @@ interface FormStrings {
   emailLabel: string;
   emailPlaceholder: string;
   phoneLabel: string;
+  phoneCountryLabel: string;
   phonePlaceholder: string;
   phoneHint: string;
   issueTypeLabel: string;
@@ -66,6 +67,7 @@ interface ContactFormProps {
 interface FormValues {
   name: string;
   email: string;
+  phoneCountryCode: string;
   phone: string;
   issueType: string;
   summary: string;
@@ -82,10 +84,29 @@ interface FormErrors {
 const INITIAL: FormValues = {
   name: "",
   email: "",
+  phoneCountryCode: "+1",
   phone: "",
   issueType: "",
   summary: "",
 };
+
+const COUNTRY_CODES: IssueTypeOption[] = [
+  { value: "+1", label: "United States / Canada (+1)" },
+  { value: "+52", label: "Mexico (+52)" },
+  { value: "+502", label: "Guatemala (+502)" },
+  { value: "+503", label: "El Salvador (+503)" },
+  { value: "+504", label: "Honduras (+504)" },
+  { value: "+505", label: "Nicaragua (+505)" },
+  { value: "+506", label: "Costa Rica (+506)" },
+  { value: "+507", label: "Panama (+507)" },
+  { value: "+57", label: "Colombia (+57)" },
+  { value: "+58", label: "Venezuela (+58)" },
+  { value: "+51", label: "Peru (+51)" },
+  { value: "+593", label: "Ecuador (+593)" },
+  { value: "+54", label: "Argentina (+54)" },
+  { value: "+56", label: "Chile (+56)" },
+  { value: "+34", label: "Spain (+34)" },
+];
 
 function SuccessState({ success, afterSubmit }: { success: SuccessStrings; afterSubmit: AfterSubmitStrings }) {
   return (
@@ -197,7 +218,7 @@ export function ContactForm({
         body: JSON.stringify({
           name: values.name,
           email: values.email,
-          phone: values.phone,
+          phone: `${values.phoneCountryCode} ${values.phone}`,
           issueType: values.issueType,
           summary: values.summary,
           honey: honeypot,
@@ -271,19 +292,52 @@ export function ContactForm({
 
       <div>
         <Label htmlFor="phone" required>{form.phoneLabel}</Label>
-        <Input
-          id="phone"
-          name="phone"
-          type="tel"
-          placeholder={form.phonePlaceholder}
-          value={values.phone}
-          onChange={(e) => set("phone", e.target.value)}
-          onBlur={() => blur("phone")}
-          error={!!(touched.phone && errors.phone)}
-          aria-describedby={touched.phone && errors.phone ? "phone-error" : "phone-hint"}
-          aria-invalid={!!(touched.phone && errors.phone)}
-          autoComplete="tel"
-        />
+        <div className="grid gap-3 sm:grid-cols-[minmax(210px,240px)_1fr]">
+          <div>
+            <label htmlFor="phoneCountryCode" className="sr-only">
+              {form.phoneCountryLabel}
+            </label>
+            <div className="relative">
+              <Globe2
+                size={16}
+                aria-hidden="true"
+                className="pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 text-[#8a7560]"
+              />
+              <select
+                id="phoneCountryCode"
+                name="phone_country_code"
+                value={values.phoneCountryCode}
+                onChange={(e) => set("phoneCountryCode", e.target.value)}
+                aria-label={form.phoneCountryLabel}
+                className="block h-[46px] w-full appearance-none rounded-lg border border-slate-200 bg-[#f9f7f4] py-3 pl-10 pr-9 text-sm font-semibold text-[#1a2e4a] shadow-sm outline-none transition-colors hover:border-slate-300 focus:border-[#1a2e4a] focus:ring-2 focus:ring-[#1a2e4a]/20"
+              >
+                {COUNTRY_CODES.map((country) => (
+                  <option key={country.value} value={country.value}>
+                    {country.label}
+                  </option>
+                ))}
+              </select>
+              <ChevronDown
+                size={16}
+                aria-hidden="true"
+                className="pointer-events-none absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400"
+              />
+            </div>
+          </div>
+          <Input
+            id="phone"
+            name="phone"
+            type="tel"
+            placeholder={form.phonePlaceholder}
+            value={values.phone}
+            onChange={(e) => set("phone", e.target.value)}
+            onBlur={() => blur("phone")}
+            error={!!(touched.phone && errors.phone)}
+            aria-describedby={touched.phone && errors.phone ? "phone-error" : "phone-hint"}
+            aria-invalid={!!(touched.phone && errors.phone)}
+            autoComplete="tel-national"
+          />
+        </div>
         {touched.phone
           ? <FieldError id="phone-error" message={errors.phone} />
           : <FieldHint id="phone-hint">{form.phoneHint}</FieldHint>
