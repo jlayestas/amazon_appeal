@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import type { Locale } from "@/i18n/routing";
 
-export const SITE_URL = "https://amazonappealpro.com";
+export const SITE_URL = "https://jrjreinstaters.com";
 export const SITE_NAME = "JRJ Reinstaters";
 export const OG_IMAGE_PATH = "/opengraph-image";
 

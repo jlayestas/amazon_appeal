@@ -1,5 +1,14 @@
 const CONTACT_EMAIL = process.env.CONTACT_EMAIL ?? "jlayestas@gmail.com";
 const FORMSUBMIT_ENDPOINT = `https://formsubmit.co/ajax/${encodeURIComponent(CONTACT_EMAIL)}`;
+const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000;
+const RATE_LIMIT_MAX = 5;
+
+type RateLimitEntry = {
+  count: number;
+  resetAt: number;
+};
+
+const rateLimitStore = new Map<string, RateLimitEntry>();
 
 interface ContactPayload {
   name?: string;
@@ -14,6 +23,34 @@ function isValidEmail(email: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
+function getClientIp(request: Request) {
+  const forwardedFor = request.headers.get("x-forwarded-for");
+  if (forwardedFor) return forwardedFor.split(",")[0]?.trim() || "unknown";
+  return request.headers.get("x-real-ip") ?? "unknown";
+}
+
+function rateLimit(request: Request) {
+  const now = Date.now();
+  const ip = getClientIp(request);
+  const entry = rateLimitStore.get(ip);
+
+  for (const [key, value] of rateLimitStore) {
+    if (value.resetAt <= now) rateLimitStore.delete(key);
+  }
+
+  if (!entry || entry.resetAt <= now) {
+    rateLimitStore.set(ip, { count: 1, resetAt: now + RATE_LIMIT_WINDOW_MS });
+    return null;
+  }
+
+  if (entry.count >= RATE_LIMIT_MAX) {
+    return Math.ceil((entry.resetAt - now) / 1000);
+  }
+
+  entry.count += 1;
+  return null;
+}
+
 export async function POST(request: Request) {
   let payload: ContactPayload;
 
@@ -25,6 +62,19 @@ export async function POST(request: Request) {
 
   if (payload.honey) {
     return Response.json({ success: true });
+  }
+
+  const retryAfter = rateLimit(request);
+  if (retryAfter !== null) {
+    return Response.json(
+      { success: false, error: "Too many requests. Please try again later." },
+      {
+        status: 429,
+        headers: {
+          "Retry-After": String(retryAfter),
+        },
+      }
+    );
   }
 
   const name = payload.name?.trim() ?? "";
