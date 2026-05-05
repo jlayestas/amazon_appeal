@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/Input";
 import { Select } from "@/components/ui/Select";
 import { Textarea } from "@/components/ui/Textarea";
 
-const FORMSUBMIT_ENDPOINT = "https://formsubmit.co/ajax/jlayestas@gmail.com";
+const CONTACT_ENDPOINT = "/api/contact";
 
 interface IssueTypeOption {
   value: string;
@@ -188,29 +188,24 @@ export function ContactForm({
     setStatus("submitting");
 
     try {
-      const data = new FormData();
-      data.append("name", values.name);
-      data.append("email", values.email);
-      data.append("phone", values.phone);
-      data.append("issue_type", values.issueType);
-      data.append("message", values.summary);
-
-      // FormSubmit configuration fields
-      data.append("_subject", "New Case Review Request — JRJ Reinstaters");
-      data.append("_template", "table");
-      data.append("_captcha", "false");
-      data.append("_replyto", values.email);
-      // Honeypot must be included as empty so FormSubmit also checks server-side
-      data.append("_honey", "");
-
-      const res = await fetch(FORMSUBMIT_ENDPOINT, {
+      const res = await fetch(CONTACT_ENDPOINT, {
         method: "POST",
-        headers: { Accept: "application/json" },
-        body: data,
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: values.name,
+          email: values.email,
+          phone: values.phone,
+          issueType: values.issueType,
+          summary: values.summary,
+          honey: honeypot,
+        }),
       });
 
       const json = await res.json();
-      if (json.success === "true" || json.success === true) {
+      if (res.ok && json.success === true) {
         setStatus("success");
       } else {
         setStatus("error");
