@@ -24,12 +24,10 @@ interface FooterProps {
 }
 
 const PLACEHOLDER_EMAIL = "";
-const PLACEHOLDER_PHONE = "+1 (000) 000-0000";
-
 export function Footer({ siteName, siteTagline, disclaimer, email, phone, footerNav, independentService, allRightsReserved, notAffiliated }: FooterProps) {
   const year = new Date().getFullYear();
   const hasEmail = email !== PLACEHOLDER_EMAIL;
-  const hasPhone = phone !== PLACEHOLDER_PHONE;
+  const hasPhone = phone.trim().length > 0;
 
   return (
     <footer className="bg-[#0a1628]" aria-label="Site footer">
@@ -69,7 +67,7 @@ export function Footer({ siteName, siteTagline, disclaimer, email, phone, footer
                     {email}
                   </p>
                 )}
-                {hasPhone ? (
+                {hasPhone && (
                   <a
                     href={`tel:${phone.replace(/\D/g, "")}`}
                     className="flex items-center gap-2 text-xs text-slate-400 transition-colors hover:text-white focus-visible:text-white"
@@ -77,11 +75,6 @@ export function Footer({ siteName, siteTagline, disclaimer, email, phone, footer
                     <Phone size={13} aria-hidden="true" />
                     {phone}
                   </a>
-                ) : (
-                  <p className="flex items-center gap-2 text-xs text-slate-600">
-                    <Phone size={13} aria-hidden="true" />
-                    {phone}
-                  </p>
                 )}
               </div>
             </div>

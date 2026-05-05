@@ -1,7 +1,5 @@
 import { MessageCircle } from "lucide-react";
 
-const PLACEHOLDER_NUMBER = "+1 (000) 000-0000";
-
 interface WhatsAppConfig {
   show: boolean;
   headline: string;
@@ -15,7 +13,7 @@ interface WhatsAppBlockProps {
 }
 
 export function WhatsAppBlock({ whatsapp }: WhatsAppBlockProps) {
-  if (!whatsapp.show || whatsapp.number === PLACEHOLDER_NUMBER) return null;
+  if (!whatsapp.show || !whatsapp.number.trim()) return null;
 
   const href = `https://wa.me/${whatsapp.number.replace(/\D/g, "")}`;
 
