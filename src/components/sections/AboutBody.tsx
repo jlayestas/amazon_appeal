@@ -54,7 +54,6 @@ interface AboutBodyProps {
     closing: string;
   };
   sectionLabels?: {
-    whoFor?: string;
     scopeOfWork?: string;
   };
 }
@@ -63,9 +62,8 @@ export function AboutBody({ whoFor, whatSupport, approach, sectionLabels }: Abou
   return (
     <>
       {/* Who This Is For */}
-      <SectionWrapper className="bg-[#f9f7f4]">
+      <SectionWrapper className="bg-[#f9f7f4] pt-10 md:pt-14">
         <div className="mb-12 text-center">
-          <SectionLabel>{sectionLabels?.whoFor ?? "Who This Is For"}</SectionLabel>
           <h2 className="text-3xl font-bold tracking-tight text-[#1a2e4a] md:text-4xl">
             {whoFor.headline}
           </h2>

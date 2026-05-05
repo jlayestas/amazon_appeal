@@ -49,8 +49,8 @@ export default async function AboutPage({ params }: PageProps) {
 
   const sectionLabels =
     locale === "es"
-      ? { whoFor: "Para Quién Es", scopeOfWork: "Alcance del Trabajo" }
-      : { whoFor: "Who This Is For", scopeOfWork: "Scope of Work" };
+      ? { scopeOfWork: "Alcance del Trabajo" }
+      : { scopeOfWork: "Scope of Work" };
 
   return (
     <>
