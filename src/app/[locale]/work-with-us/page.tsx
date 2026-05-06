@@ -32,12 +32,22 @@ const content = {
     responsibilitiesLabel: "Responsibilities",
     backgroundLabel: "Preferred background",
     stepsLabel: "Steps to apply",
+    locationLabel: "Location",
+    engagementLabel: "Engagement",
+    departmentLabel: "Department",
+    applyEmailLabel: "Send applications to",
+    fairHiringLabel: "Fair hiring note",
+    fairHiring:
+      "JRJ Reinstaters reviews applicants based on relevant experience, communication, judgment, reliability, and role fit. We welcome qualified applicants from different professional backgrounds.",
     note:
       "Roles may be remote, contract, part-time, or full-time depending on business needs and candidate fit. JRJ Reinstaters is an independent consulting and document preparation service.",
     roleNameLabel: "Role Name",
     jobs: [
       {
         title: "Operations Manager",
+        department: "Operations",
+        location: "Remote",
+        engagement: "Contract, part-time, or full-time depending on fit",
         description:
           "Own day-to-day workflow, case intake coordination, internal follow-ups, and process improvements so client work moves cleanly from review to delivery.",
         profile:
@@ -55,6 +65,9 @@ const content = {
       },
       {
         title: "Account Manager",
+        department: "Client Success",
+        location: "Remote",
+        engagement: "Contract, part-time, or full-time depending on fit",
         description:
           "Support client communication, case status updates, document collection, and expectation-setting throughout the appeal preparation process.",
         profile:
@@ -72,6 +85,9 @@ const content = {
       },
       {
         title: "Appeal Consultant",
+        department: "Consulting",
+        location: "Remote",
+        engagement: "Contract or part-time depending on case volume and fit",
         description:
           "Review Amazon notices, account history, evidence, and prior submissions to help prepare clear appeal strategies and seller-controlled responses.",
         profile:
@@ -89,6 +105,9 @@ const content = {
       },
       {
         title: "Sales Representative",
+        department: "Sales",
+        location: "Remote",
+        engagement: "Contract, commission-based, or part-time depending on fit",
         description:
           "Handle qualified inquiries, explain service scope clearly, follow up with prospective clients, and help sellers understand whether the service is a fit.",
         profile:
@@ -126,12 +145,22 @@ const content = {
     responsibilitiesLabel: "Responsabilidades",
     backgroundLabel: "Perfil preferido",
     stepsLabel: "Pasos para aplicar",
+    locationLabel: "Ubicación",
+    engagementLabel: "Modalidad",
+    departmentLabel: "Departamento",
+    applyEmailLabel: "Enviar solicitudes a",
+    fairHiringLabel: "Nota de contratación justa",
+    fairHiring:
+      "JRJ Reinstaters revisa candidatos segun experiencia relevante, comunicacion, criterio, confiabilidad y ajuste con la posicion. Invitamos a aplicar a candidatos calificados de distintos perfiles profesionales.",
     note:
       "Las posiciones pueden ser remotas, por contrato, medio tiempo o tiempo completo segun las necesidades del negocio y el perfil del candidato. JRJ Reinstaters es un servicio independiente de consultoria y preparacion de documentos.",
     roleNameLabel: "Nombre de la posicion",
     jobs: [
       {
         title: "Gerente de Operaciones",
+        department: "Operaciones",
+        location: "Remoto",
+        engagement: "Contrato, medio tiempo o tiempo completo segun ajuste",
         description:
           "Coordinar el flujo diario de trabajo, intake de casos, seguimientos internos y mejoras de proceso para que cada caso avance de revision a entrega con orden.",
         profile:
@@ -149,6 +178,9 @@ const content = {
       },
       {
         title: "Account Manager",
+        department: "Exito del Cliente",
+        location: "Remoto",
+        engagement: "Contrato, medio tiempo o tiempo completo segun ajuste",
         description:
           "Apoyar la comunicacion con clientes, actualizaciones de estado, recoleccion de documentos y manejo de expectativas durante la preparacion de apelaciones.",
         profile:
@@ -166,6 +198,9 @@ const content = {
       },
       {
         title: "Consultor de Apelaciones",
+        department: "Consultoria",
+        location: "Remoto",
+        engagement: "Contrato o medio tiempo segun volumen de casos y ajuste",
         description:
           "Revisar avisos de Amazon, historial de cuenta, evidencia y presentaciones anteriores para apoyar estrategias de apelacion claras.",
         profile:
@@ -183,6 +218,9 @@ const content = {
       },
       {
         title: "Representante de Ventas",
+        department: "Ventas",
+        location: "Remoto",
+        engagement: "Contrato, comision o medio tiempo segun ajuste",
         description:
           "Atender consultas calificadas, explicar claramente el alcance del servicio, dar seguimiento a prospectos y ayudar a vendedores a entender si el servicio aplica.",
         profile:
@@ -230,6 +268,7 @@ export default async function WorkWithUsPage({ params }: PageProps) {
     url: absoluteUrl(locale, "work-with-us"),
     publisher: { "@type": "Organization", name: SITE_NAME },
   };
+  const jobSubject = (title: string) => `${c.subjectPrefix} - ${title}`;
 
   return (
     <>
@@ -266,9 +305,9 @@ export default async function WorkWithUsPage({ params }: PageProps) {
               >
                 <summary className="cursor-pointer list-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#1a2e4a]">
                   <div className="mb-4 flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#1a2e4a]/8">
-                    <BriefcaseBusiness size={18} className="text-[#1a2e4a]" aria-hidden="true" />
-                  </div>
+                    <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#1a2e4a]/8">
+                      <BriefcaseBusiness size={18} className="text-[#1a2e4a]" aria-hidden="true" />
+                    </div>
                     <div className="min-w-0 flex-1">
                       <h2 className="text-xl font-bold text-[#1a2e4a]">{job.title}</h2>
                       <p className="mt-1 text-xs font-semibold uppercase tracking-[0.13em] text-[#8a7560]">
@@ -282,6 +321,26 @@ export default async function WorkWithUsPage({ params }: PageProps) {
                     />
                   </div>
                   <p className="text-sm leading-relaxed text-slate-600">{job.description}</p>
+                  <dl className="mt-5 grid gap-3 text-xs text-slate-600 sm:grid-cols-3">
+                    <div className="rounded-md bg-slate-50 px-3 py-2">
+                      <dt className="font-bold uppercase tracking-[0.12em] text-[#8a7560]">
+                        {c.locationLabel}
+                      </dt>
+                      <dd className="mt-1 font-semibold text-[#1a2e4a]">{job.location}</dd>
+                    </div>
+                    <div className="rounded-md bg-slate-50 px-3 py-2">
+                      <dt className="font-bold uppercase tracking-[0.12em] text-[#8a7560]">
+                        {c.departmentLabel}
+                      </dt>
+                      <dd className="mt-1 font-semibold text-[#1a2e4a]">{job.department}</dd>
+                    </div>
+                    <div className="rounded-md bg-slate-50 px-3 py-2">
+                      <dt className="font-bold uppercase tracking-[0.12em] text-[#8a7560]">
+                        {c.engagementLabel}
+                      </dt>
+                      <dd className="mt-1 font-semibold text-[#1a2e4a]">{job.engagement}</dd>
+                    </div>
+                  </dl>
                   <div className="mt-5 flex gap-3 text-sm leading-relaxed text-slate-700">
                     <CheckCircle size={17} className="mt-1 shrink-0 text-[#1a2e4a]" aria-hidden="true" />
                     <p>{job.profile}</p>
@@ -290,6 +349,11 @@ export default async function WorkWithUsPage({ params }: PageProps) {
 
                 <div className="mt-6 border-t border-slate-200 pt-6">
                   <h3 className="text-sm font-bold uppercase tracking-[0.13em] text-[#8a7560]">
+                    {c.overviewLabel}
+                  </h3>
+                  <p className="mt-3 text-sm leading-relaxed text-slate-700">{job.description}</p>
+
+                  <h3 className="mt-6 text-sm font-bold uppercase tracking-[0.13em] text-[#8a7560]">
                     {c.responsibilitiesLabel}
                   </h3>
                   <ul className="mt-3 space-y-3">
@@ -300,6 +364,11 @@ export default async function WorkWithUsPage({ params }: PageProps) {
                       </li>
                     ))}
                   </ul>
+
+                  <h3 className="mt-6 text-sm font-bold uppercase tracking-[0.13em] text-[#8a7560]">
+                    {c.backgroundLabel}
+                  </h3>
+                  <p className="mt-3 text-sm leading-relaxed text-slate-700">{job.profile}</p>
 
                   <h3 className="mt-6 text-sm font-bold uppercase tracking-[0.13em] text-[#8a7560]">
                     {c.stepsLabel}
@@ -315,8 +384,21 @@ export default async function WorkWithUsPage({ params }: PageProps) {
                     ))}
                   </ol>
 
+                  <div className="mt-5 rounded-md border border-slate-200 bg-white p-4 text-sm text-slate-700">
+                    <p>
+                      <span className="font-semibold text-[#1a2e4a]">{c.applyEmailLabel}: </span>
+                      <a href={`mailto:${CONTACT_EMAIL}`} className="font-semibold text-[#1a2e4a] hover:text-[#8a7560]">
+                        {CONTACT_EMAIL}
+                      </a>
+                    </p>
+                    <p className="mt-2">
+                      <span className="font-semibold text-[#1a2e4a]">{c.subjectLabel}: </span>
+                      {jobSubject(job.title)}
+                    </p>
+                  </div>
+
                   <Link
-                    href={`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(`${c.subjectPrefix} - ${job.title}`)}`}
+                    href={`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(jobSubject(job.title))}`}
                     className="mt-6 inline-flex items-center gap-2 rounded-md bg-[#1a2e4a] px-4 py-2.5 text-sm font-semibold text-white hover:bg-[#243d60]"
                   >
                     {c.emailLabel}
@@ -346,6 +428,10 @@ export default async function WorkWithUsPage({ params }: PageProps) {
             </p>
           </div>
           <p className="mt-5 text-xs leading-relaxed text-slate-500">{c.note}</p>
+          <p className="mt-3 text-xs leading-relaxed text-slate-500">
+            <span className="font-semibold text-slate-600">{c.fairHiringLabel}: </span>
+            {c.fairHiring}
+          </p>
           <Link
             href={mailtoHref}
             className="mt-6 inline-flex items-center gap-2 rounded-md bg-[#1a2e4a] px-5 py-3 text-sm font-semibold text-white hover:bg-[#243d60]"
